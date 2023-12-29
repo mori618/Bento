@@ -1,0 +1,49 @@
+<div class="container p-5">
+  <div class="row text-center">
+    <div class="col-12">
+      <div class="title-body">
+        <h2>会員新規登録</h2>
+      </div>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "public/shared/error_messages", resource: resource %>
+        <table class="table table-striped">
+          <tr>
+            <th class="text-left">
+              <%= f.label :email,"　メールアドレス" %>
+            </th>
+            <td>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email",:placeholder => "email" %>
+            </td>
+          </tr>
+          <tr>
+            <th class="text-left">
+              <%= f.label :password,"　パスワード（6文字以上）" %>
+            </th>
+            <td>
+              <%= f.password_field :password, autocomplete: "new-password" ,:placeholder => "password" %>
+            </td>
+          </tr>
+          <tr>
+            <th class="text-left">
+              <%= f.label :password_confirmation ,"　パスワード（確認）" %>
+            </th>
+            <td>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password",:placeholder => "password" %>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <%= f.submit "新規登録" %>
+            </td>
+          </tr>
+        </table>
+      <% end %>
+    </div>
+  </div>
+  <div class="row float-right">
+    <div>
+      <%= render "public/shared/links" %>
+    </div>
+  </div>
+</div>
