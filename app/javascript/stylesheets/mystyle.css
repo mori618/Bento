@@ -35,3 +35,14 @@ footer{
 ul {
   list-style: none;
 }
+
+th {
+  background-color: #3e62ad;
+  color: white;
+}
+
+
+
+.pagination {
+  justify-content: center;
+}

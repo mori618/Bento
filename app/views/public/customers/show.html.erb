@@ -2,10 +2,11 @@
   <div class="row text-center">
     <div class="col-12">
       <div class="title-body">
-        <h2><%= @customer.last_name %>様会員詳細</h2>
+        <h2>マイページ</h2>
       </div>
 
       <table class="table table-striped table-hover mt-3" style="background-color: #fff;">
+        <%= flash[:notice] %>
         <tr>
           <th style="width: 30%">会員ID</th>
           <td><%= @customer.id %></td>
@@ -30,22 +31,14 @@
           <td><%= @customer.telephone_number %></td>
         </tr>
         <tr>
-          <th>会員ステータス</th>
-          <td>
-            <% if @customer.is_active %>
-              <div class="text-success">有効</div>
-            <% else %>
-              退会
-            <% end %>
-          </td>
-        </tr>
+
 
       </table>
     </div>
   </div>
   <div class="row float-right">
     <div>
-      <%= link_to "#{@customer.last_name}様の会員情報を編集する",edit_admin_customer_path(@customer) %>
+      <%= link_to "会員情報を編集する",edit_customer_path %>
       </div>
   </div>
 </div>

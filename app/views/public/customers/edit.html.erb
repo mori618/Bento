@@ -4,7 +4,7 @@
       <div class="title-body">
         <h2><%= @customer.last_name %>様会員情報編集</h2>
       </div>
-      <%= form_with model:@customer, url:admin_customer_path, local:true do |f| %>
+      <%= form_with model:@customer, url: update_customer_path, local:true do |f| %>
       <% if @customer.errors.any? %>
         <%= @customer.errors.count %>件のエラーが発生しました
         <ul>
@@ -40,13 +40,7 @@
               <%= f.label :address ,"住所" %><br />
               <%= f.text_field :address ,:placeholder => "京都府京都市",size: 46%>
             </div>
-            <div class="field text-left">
-              <%= f.label :is_active ,"会員ステータス" %><br />
-                <%= f.radio_button :is_active, :true %>
-                  有効
-                <%= f.radio_button :is_active, :false %>
-                  退会
-            </div>
+
           </div>
 
           <div class="row">
