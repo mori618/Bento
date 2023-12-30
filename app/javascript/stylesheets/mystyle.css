@@ -1,7 +1,7 @@
 .main{
   min-height: 100vh;
   position: relative;
-  padding-bottom: 60px;
+  padding-bottom: 90px;
   box-sizing: border-box;
 }
 header{
@@ -32,3 +32,6 @@ footer{
   margin: 30px;
 }
 
+ul {
+  list-style: none;
+}
