@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+
   devise_for :customers,skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: "homes#top"
-    resources :admin, :bento, :customer
+    resources :admin, :bento, :customer ,:dishes
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

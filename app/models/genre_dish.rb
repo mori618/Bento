@@ -1,0 +1,2 @@
+class GenreDish < ApplicationRecord
+end
