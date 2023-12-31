@@ -14,12 +14,12 @@ class Admin::DishesController < ApplicationController
 
   def create
     @dish = Dish.new(dish_params)
-    @genre = GenreDish.all
+    @genres = GenreDish.all
     if @dish.save
       redirect_to admin_dish_path(@dish), notice: "作成を完了しました"
     else
-      @genre = GenreDish.all
-      render new_admin_dish_path
+      puts @dish.errors.full_messages
+      render :new
     end
   end
 
@@ -29,6 +29,6 @@ class Admin::DishesController < ApplicationController
   private
 
   def dish_params
-    params.require(:dish).permit(:name, :introduction, :image, :genre_id)
+    params.require(:dish).permit(:name, :introduction, :image, :genre_id,:is_active)
   end
 end

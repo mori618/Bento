@@ -8,7 +8,7 @@ class Admin::GenreDishesController < ApplicationController
     if @genre.save
       redirect_to admin_genre_dishes_path, notice: "作成を完了しました"
     else
-      render admin_genre_dishes_path
+      redirect_to admin_genre_dishes_path
     end
   end
 

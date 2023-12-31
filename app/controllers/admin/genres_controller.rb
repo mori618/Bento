@@ -3,12 +3,13 @@ class Admin::GenresController < ApplicationController
     @genres = Genre.page(params[:page])
     @genre = Genre.new
   end
+
   def create
     @genre = Genre.new(genre_params)
     if @genre.save
       redirect_to admin_genres_path, notice: "作成を完了しました"
     else
-      render admin_genres_path
+      redirect_to admin_genres_path
     end
   end
 

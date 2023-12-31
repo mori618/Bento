@@ -7,11 +7,11 @@
       <% if @dishes.present? %>
         <% @dishes.each do |dish| %>
           <div class="card" style="width: 18rem;">
-            <img src="<%= dish.image_url %>" class="card-img-top" alt="<%= dish.name %>">
+            <%= image_tag dish.dish_image, class: "card-img-top", alt: dish.name %>
             <div class="card-body">
               <h5 class="card-title"><%= dish.name %></h5>
               <p class="card-text"><%= dish.introduction %></p>
-              <a href="<%= dish_path(dish) %>" class="btn btn-primary">詳細を見る</a>
+              <a href="<%= admin_dish_path(dish) %>" class="btn btn-primary">詳細を見る</a>
             </div>
           </div>
         <% end %>
