@@ -46,3 +46,7 @@ th {
 .pagination {
   justify-content: center;
 }
+
+.max-box{
+  width: 100%;
+}

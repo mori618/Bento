@@ -4,25 +4,29 @@
       <div class="title-body">
         <h2>おかず一覧</h2>
       </div>
-      <% if @dishes.present? %>
-        <% @dishes.each do |dish| %>
-          <div class="card" style="width: 18rem;">
-            <%= image_tag dish.dish_image, class: "card-img-top", alt: dish.name %>
-            <div class="card-body">
-              <h5 class="card-title"><%= dish.name %></h5>
-              <p class="card-text"><%= dish.introduction %></p>
-              <a href="<%= admin_dish_path(dish) %>" class="btn btn-primary">詳細を見る</a>
+
+      <div class="max-box d-flex flex-wrap justify-content-center">
+        <% if @dishes.present? %>
+          <% @dishes.each do |dish| %>
+            <div class="card m-3" style="width: 18rem;">
+              <%= image_tag dish.dish_image, class: "card-img-top", alt: dish.name %>
+              <div class="card-body">
+                <h5 class="card-title"><%= dish.name %></h5>
+                <p class="card-text"><%= dish.introduction %></p>
+                <a href="<%= admin_dish_path(dish) %>" class="btn btn-outline-primary stretched-link">詳細を見る</a>
+              </div>
             </div>
-          </div>
+          <% end %>
+        <% else %>
+          <p>データが存在しません</p>
         <% end %>
-      <% else %>
-        <p>データが存在しません</p>
-      <% end %>
+      </div>
+      <%= paginate @dishes %>
     </div>
   </div>
   <div class="row float-right">
     <div>
       <%= link_to "おかずを追加する",new_admin_dish_path %>
-      </div>
+    </div>
   </div>
 </div>

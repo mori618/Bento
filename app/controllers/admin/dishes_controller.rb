@@ -1,10 +1,10 @@
 class Admin::DishesController < ApplicationController
   def index
-    @dishes = Dish.all
+    @dishes = Dish.page(params[:page]).per(6)
   end
 
   def show
-    @dishes = Dish.find(params[:id])
+    @dish = Dish.find(params[:id])
   end
 
   def new
