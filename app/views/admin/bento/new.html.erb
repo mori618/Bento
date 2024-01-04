@@ -1,2 +1,55 @@
-<h1>Admin::Bento#new</h1>
-<p>Find me in app/views/admin/bento/new.html.erb</p>
+<div class="container p-5">
+  <div class="row text-center">
+    <div class="col-12">
+      <div class="title-body">
+        <h2>弁当新規作成</h2>
+      </div>
+      <% if @genres.present? %>
+        <%= form_with model:@bento, url: admin_bento_index_path, local:true do |f| %>
+        <% if @bento.errors.any? %>
+          <%= @bento.errors.count %>件のエラーが発生しました
+          <ul>
+            <% @bento.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+          <div class="m-3">
+            <div class="m-auto p-3" style="background-color: #e6f5ff; width: 430px;">
+              <div class="field text-left">
+                <%= f.label :name,"名前" %><br />
+                <%= f.text_field :name , autofocus: true, :placeholder => "名前" ,size: 30 %>
+              </div>
+              <div class="field text-left">
+                <%= f.label :introduction,"紹介文" %><br />
+                <%= f.text_area :introduction ,:placeholder => "紹介文" ,size: "40x5" %>
+              </div>
+              <div class="field text-left">
+                <%= f.label :genre_id,"カテゴリー" %><br />
+                <%= f.collection_select(:genre_id, @genres, :id, :name) %>
+              </div>
+              <div class="field text-left">
+                <%= f.label :image,"画像" %><br />
+                <%= f.file_field :bento_image, accept: "image/*" %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-8 offset-4"><br />
+                <%= f.submit "作成する" ,class: "btn btn-outline-success"%>
+              </div>
+            </div>
+
+          </div>
+        <% end %>
+      <% else %>
+        <p><%= link_to "おかずカテゴリーを作成してください",admin_genres_path, class: "m-5 btn btn-sm btn-primary" %></p>
+      <% end %>
+      </div>
+    </div>
+  <div class="row float-right">
+    <div>
+      <%= link_to "弁当一覧に戻る",admin_bento_index_path %>
+    </div>
+  </div>
+</div>

@@ -1,2 +1,27 @@
-<h1>Admin::Bento#show</h1>
-<p>Find me in app/views/admin/bento/show.html.erb</p>
+<div class="container p-5">
+  <div class="row text-center">
+    <div class="col-12">
+      <div class="title-body">
+        <h2><%= @bento.name %></h2>
+      </div>
+      <div class="row d-flex justify-content-center m-3">
+        <% if @bento.present? %>
+          <div class="col-8 text-left">
+            <%= image_tag @bento.bento_image,class:"img-fluid" ,style: "width:50%;" %>
+            <%= @bento.introduction %>
+          </div>
+
+        <% else %>
+          <p>データが存在しません</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row float-right">
+    <div>
+      <%= link_to '削除する', admin_bento_path(@bento), method: :delete, data: { confirm: '本当に消しますか？' }, class: "text-danger mr-5"%>
+      <%= link_to "おかず一覧に戻る",admin_bentoes_path ,class: "mr-5"%>
+      <%= link_to "編集する",edit_admin_bento_path(@bento)%>
+    </div>
+  </div>
+</div>
