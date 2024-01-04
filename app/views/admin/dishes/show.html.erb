@@ -19,6 +19,8 @@
   </div>
   <div class="row float-right">
     <div>
+      <%= link_to '削除する', admin_dish_path(@dish), method: :delete, data: { confirm: '本当に消しますか？' }, class: "text-danger mr-5"%>
+      <%= link_to "おかず一覧に戻る",admin_dishes_path ,class: "mr-5"%>
       <%= link_to "編集する",edit_admin_dish_path(@dish)%>
     </div>
   </div>
