@@ -18,7 +18,7 @@ class Admin::BentoController < ApplicationController
     @dishes = Dish.all
     @genres = Genre.all
     if @bento.update(bento_params)
-      redirect_to admin_bento_box_path(@bento), notice: "変更内容を保存しました"
+      redirect_to admin_bento_path(@bento), notice: "変更内容を保存しました"
     else
       render :edit
     end
@@ -41,9 +41,19 @@ class Admin::BentoController < ApplicationController
     end
   end
 
+  def destroy
+    @bento = BentoBox.find(params[:id])
+    @bento.destroy
+    redirect_to admin_bento_index_path
+  end
+
   private
 
   def bento_params
-    params.require(:bento_box).permit(:name, :introduction, :image, :genre_id,:is_active,:dish_image)
+    params.require(:bento_box).permit(:name, :introduction, :image,:price,:genre_id,:is_active,:bento_image,dish_ids:[])
+  end
+
+  def dish_params
+    params.require(:dish).permit(:name, :introduction, :image, :genre_id,:is_active,:dish_image)
   end
 end

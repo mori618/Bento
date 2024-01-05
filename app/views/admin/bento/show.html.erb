@@ -7,8 +7,24 @@
       <div class="row d-flex justify-content-center m-3">
         <% if @bento.present? %>
           <div class="col-8 text-left">
-            <%= image_tag @bento.bento_image,class:"img-fluid" ,style: "width:50%;" %>
-            <%= @bento.introduction %>
+            <div class="row">
+              <div class="col-md-6">
+                <%= image_tag @bento.bento_image,class:"img-fluid" ,style: "width:50%;" %>
+              </div>
+              <div class="col-md-6">
+                <h6 class="p-2" style="background-color: #e6f5ff;">紹介文</h6>
+                <%= @bento.introduction %>
+                <h6 class="p-2" style="background-color: #e6f5ff;">価格</h6>
+                <%= @bento.price %>円
+                <h6 class="p-2" style="background-color: #e6f5ff;">カテゴリー</h6>
+                <%= @bento.genre.name %>
+              </div>
+            </div>
+            <h4 class="p-2 row" style="background-color: #e6f5ff;">おかず</h4>
+            <% @bento.dishes.each do |dish| %>
+              <%= image_tag dish.dish_image,size: "100x60" %>
+              <%= dish.name %>
+            <% end %>
           </div>
 
         <% else %>
@@ -20,7 +36,7 @@
   <div class="row float-right">
     <div>
       <%= link_to '削除する', admin_bento_path(@bento), method: :delete, data: { confirm: '本当に消しますか？' }, class: "text-danger mr-5"%>
-      <%= link_to "おかず一覧に戻る",admin_bentoes_path ,class: "mr-5"%>
+      <%= link_to "弁当一覧に戻る",admin_bento_index_path ,class: "mr-5"%>
       <%= link_to "編集する",edit_admin_bento_path(@bento)%>
     </div>
   </div>

@@ -14,15 +14,19 @@
             <% end %>
           </ul>
         <% end %>
-          <div class="m-3">
-            <div class="m-auto p-3" style="background-color: #e6f5ff; width: 430px;">
+          <div class="row m-3" style="background-color: #e6f5ff;">
+            <div class="col-md-6 m-auto p-3" style="background-color: #e6f5ff; width: 430px;">
               <div class="field text-left">
                 <%= f.label :name,"名前" %><br />
                 <%= f.text_field :name , autofocus: true, :placeholder => "名前" ,size: 30 %>
               </div>
               <div class="field text-left">
                 <%= f.label :introduction,"紹介文" %><br />
-                <%= f.text_area :introduction ,:placeholder => "紹介文" ,size: "40x5" %>
+                <%= f.text_area :introduction ,:placeholder => "紹介文" ,size: "35x5" %>
+              </div>
+              <div class="field text-left">
+                <%= f.label :price,"価格（税抜）" %><br />
+                <%= f.text_field :price ,:placeholder => "価格" ,size: "35x5" %>
               </div>
               <div class="field text-left">
                 <%= f.label :genre_id,"カテゴリー" %><br />
@@ -33,12 +37,27 @@
                 <%= f.file_field :bento_image, accept: "image/*" %>
               </div>
             </div>
+            <div class="col-md-6 m-auto p-3 field text-left" style="background-color: #e6f5ff; width: 430px;">
+              <%= f.label :genre_id,"おかず" %><br />
+              <%= f.collection_check_boxes(:dish_ids, @dishes, :id, :name) do |b| %>
+                <label class="checkbox-inline">
+                <%= b.check_box class:"form-control2" do %>
+                    <%= b.check_box + b.text %>
+                <% end %>
+                  <%= b.label {b.text} %>
+                  <%= image_tag b.object.dish_image,size: "50x30"%>
+                </label>
+              <% end %>
+            </div>
 
+
+
+            </div>
             <div class="row">
               <div class="col-8 offset-4"><br />
                 <%= f.submit "作成する" ,class: "btn btn-outline-success"%>
               </div>
-            </div>
+
 
           </div>
         <% end %>
