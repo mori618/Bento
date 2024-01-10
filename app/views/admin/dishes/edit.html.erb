@@ -32,6 +32,13 @@
                 <%= f.label :image,"画像" %><br />
                 <%= f.file_field :dish_image, accept: "image/*" %>
               </div>
+              <div class="field text-left">
+                <%= f.label :is_active,"販売状況" %><br />
+                <%= f.radio_button :is_active, :true %>
+                  販売中
+                <%= f.radio_button :is_active, :false %>
+                  販売停止中
+              </div>
             </div>
 
             <div class="row">

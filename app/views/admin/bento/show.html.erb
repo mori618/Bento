@@ -13,20 +13,27 @@
               </div>
               <div class="col-md-6">
                 <h6 class="p-2" style="background-color: #e6f5ff;">紹介文</h6>
-                <%= @bento.introduction %>
+                　<%= @bento.introduction %>
                 <h6 class="p-2" style="background-color: #e6f5ff;">価格</h6>
-                <%= @bento.price %>円
+                　<%= @bento.price %>円
                 <h6 class="p-2" style="background-color: #e6f5ff;">カテゴリー</h6>
-                <%= @bento.genre.name %>
+                　<%= @bento.genre.name %>
+                <h6 class="p-2" style="background-color: #e6f5ff;">販売状況</h6>
+                　<% if @bento.is_active %>
+                  <span class="text-success">　販売中</span>
+                <% else %>
+                  　販売停止中
+                <% end %>
               </div>
             </div>
             <h4 class="p-2 row" style="background-color: #e6f5ff;">おかず</h4>
             <% @bento.dishes.each do |dish| %>
-              <%= image_tag dish.dish_image,size: "100x60" %>
-              <%= dish.name %>
+              <%= link_to admin_dish_path(dish) do %>
+                <%= image_tag dish.dish_image,size: "100x60" %>
+                <%= dish.name %>
+              <% end %>
             <% end %>
           </div>
-
         <% else %>
           <p>データが存在しません</p>
         <% end %>

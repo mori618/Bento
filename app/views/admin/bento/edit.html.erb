@@ -36,6 +36,13 @@
                 <%= f.label :image,"画像" %><br />
                 <%= f.file_field :bento_image, accept: "image/*" %>
               </div>
+              <div class="field text-left">
+                <%= f.label :is_active,"販売状況" %><br />
+                <%= f.radio_button :is_active, :true %>
+                  販売中
+                <%= f.radio_button :is_active, :false %>
+                  販売停止中
+              </div>
             </div>
             <div class="col-md-6 m-auto p-3 field text-left" style="background-color: #e6f5ff; width: 430px;">
               <%= f.label :genre_id,"おかず" %><br />
