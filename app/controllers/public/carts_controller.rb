@@ -10,7 +10,7 @@ class Public::CartsController < ApplicationController
   def update
      @carts = Cart.find(params[:id])
      @carts.update(carts_params)
-      redirect_to carts_path, notice: "数量を変更しました。"
+      redirect_to carts_path, notice: "数量を変更しました"
   end
 
   def destroy
@@ -28,31 +28,20 @@ class Public::CartsController < ApplicationController
 
   def create
     @cart = current_customer.carts.new(carts_params)
-      # もし元々カート内に「同じ商品」がある場合、「数量を追加」更新・保存する
-      #ex.バナナ２個、バナナ２個ではなく  バナナ「4個」にしたい
-      if current_customer.cartms.find_by(bento_box_id: params[:cart][:bento_box_id]).present?
-      #元々カート内にあるもの「item_id」
-      #今追加した          params[:cart_item][:item_id])
-        cart = current_customer.carts.find_by(item_id: params[:cart][:bento_box_id])
+      if current_customer.carts.find_by(bento_box_id: params[:cart][:bento_box_id]).present?
+        cart = current_customer.carts.find_by(bento_box_id: params[:cart][:bento_box_id])
         cart.amount += params[:cart][:amount].to_i
-        #cart_item.quantityに今追加したparams[:cart_item][:quantity]を加える
-                                                  #.to_iとして数字として扱う
         cart.save
         redirect_to carts_path
-        # もしカート内に「同じ」商品がない場合は通常の保存処理
       elsif @cart.save
               @carts = current_customer.carts.all
               redirect_to carts_path
-      else  # 保存できなかった場合
+      else
               redirect_to root_path
       end
   end
 
   private
-
-  # def item_params
-  #   params.require(:items).permit(:genre_id,:name,:introduction,:is_active,:price)
-  # end
 
   def carts_params
     params.require(:cart).permit(:customer_id,:bento_box_id,:amount)

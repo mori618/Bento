@@ -1,4 +1,4 @@
-<div class="container p-5">
+<div class="container-xxl p-5">
   <div class="row text-center">
     <div class="col-12">
       <div class="title-body">
@@ -32,8 +32,8 @@
         <% if customer_signed_in? %>
         <table>
           <tr>
-            <td><%= f.select :amount, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"]], include_blank: "個数選択" %></td>
-            <td><%= f.submit "カートに入れる",  class: "btn btn-success text-white" %></td>
+            <td><%= f.number_field :amount, :placeholder => "注文個数" %></td>
+            <td><%= f.submit "カートに入れる",  class: "btn btn-outline-success btn-sm" %></td>
           </tr>
         </table>
         <% end %>

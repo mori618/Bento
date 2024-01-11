@@ -32,6 +32,11 @@ footer{
   margin: 30px;
 }
 
+.container-xxl{
+  background-color: #fff;
+  margin: 30px;
+}
+
 ul {
   list-style: none;
 }

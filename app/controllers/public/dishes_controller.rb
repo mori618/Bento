@@ -1,6 +1,6 @@
 class Public::DishesController < ApplicationController
   def index
-    @dishes = Dish.page(params[:page]).per(6)
+    @dishes = Dish.page(params[:page]).per(8)
   end
 
   def show
