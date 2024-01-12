@@ -1,0 +1,34 @@
+<div class="container-xxl p-5">
+  <div class="row text-center">
+    <div class="col-12">
+      <div class="title-body">
+        <h2>おかず一覧</h2>
+      </div>
+
+      <div class="max-box d-flex flex-wrap justify-content-center">
+        <% if @dishes.present? %>
+          <% @dishes.each do |dish| %>
+            <div class="card m-3" style="width: 18rem;">
+              <%= image_tag dish.dish_image, class: "card-img-top", alt: dish.name %>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title mt-auto m-0"><%= dish.name %></h5>
+                <p class="card-text m-0"><%= dish.introduction %></p>
+                <div class="float-right">
+                  <%= link_to "詳細を見る",admin_dish_path(dish), class: "btn btn-outline-primary btn-sm stretched-link"%>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <p>データが存在しません</p>
+        <% end %>
+      </div>
+      <%= paginate @dishes %>
+    </div>
+  </div>
+  <div class="row float-right">
+    <div>
+      <%= link_to "おかずを追加する",new_admin_dish_path %>
+    </div>
+  </div>
+</div>

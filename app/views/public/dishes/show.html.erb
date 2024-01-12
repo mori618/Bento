@@ -1,0 +1,24 @@
+<div class="container-xxl p-5">
+  <div class="row text-center">
+    <div class="col-12">
+      <div class="title-body">
+        <h2><%= @dish.name %></h2>
+      </div>
+      <div class="row d-flex justify-content-center m-3">
+        <% if @dish.present? %>
+          <div class="col-8 text-left">
+            <%= image_tag @dish.dish_image,class:"img-fluid" ,style: "width:50%;" %>
+            <%= @dish.introduction %>
+          </div>
+        <% else %>
+          <p>データが存在しません</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row float-right">
+    <div>
+      <%= link_to "戻る",:back ,class: "mr-5"%>
+    </div>
+  </div>
+</div>

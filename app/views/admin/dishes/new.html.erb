@@ -1,0 +1,55 @@
+<div class="container-xxl p-5">
+  <div class="row text-center">
+    <div class="col-12">
+      <div class="title-body">
+        <h2>おかず新規作成</h2>
+      </div>
+      <% if @genres.present? %>
+        <%= form_with model:@dish, url: admin_dishes_path, local:true do |f| %>
+        <% if @dish.errors.any? %>
+          <%= @dish.errors.count %>件のエラーが発生しました
+          <ul>
+            <% @dish.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+          <div class="m-3">
+            <div class="m-auto p-3" style="background-color: #e6f5ff; width: 430px;">
+              <div class="field text-left">
+                <%= f.label :name,"名前" %><br />
+                <%= f.text_field :name , autofocus: true, :placeholder => "名前" ,size: 30 %>
+              </div>
+              <div class="field text-left">
+                <%= f.label :introduction,"紹介文" %><br />
+                <%= f.text_area :introduction ,:placeholder => "紹介文" ,size: "40x5" %>
+              </div>
+              <div class="field text-left">
+                <%= f.label :genre_id,"カテゴリー" %><br />
+                <%= f.collection_select(:genre_id, @genres, :id, :name) %>
+              </div>
+              <div class="field text-left">
+                <%= f.label :image,"画像" %><br />
+                <%= f.file_field :dish_image, accept: "image/*" %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-8 offset-4"><br />
+                <%= f.submit "作成する" ,class: "btn btn-outline-success"%>
+              </div>
+            </div>
+
+          </div>
+        <% end %>
+      <% else %>
+        <p><%= link_to "おかずカテゴリーを作成してください",admin_genres_path, class: "m-5 btn btn-sm btn-primary" %></p>
+      <% end %>
+      </div>
+    </div>
+  <div class="row float-right">
+    <div>
+      <%= link_to "おかず一覧に戻る",admin_dishes_path %>
+    </div>
+  </div>
+</div>

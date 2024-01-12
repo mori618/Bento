@@ -1,0 +1,57 @@
+.main{
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 90px;
+  box-sizing: border-box;
+}
+header{
+  font-family: 'Hina Mincho', serif;
+}
+
+.body-color{
+  background-color: #e6f5ff;
+}
+
+footer{
+  position: absolute;
+  bottom: 0;
+  background-color: #000080;
+  height: 90px;
+  width: 100%;
+}
+
+.title-body{
+  font-family: 'Hina Mincho', serif;
+  background-color: #3e62ad;
+  padding: 5px;
+  color: white;
+}
+
+.container{
+  background-color: #fff;
+  margin: 30px;
+}
+
+.container-xxl{
+  background-color: #fff;
+  margin: 30px;
+}
+
+ul {
+  list-style: none;
+}
+
+th {
+  background-color: #3e62ad;
+  color: white;
+}
+
+
+
+.pagination {
+  justify-content: center;
+}
+
+.max-box{
+  width: 100%;
+}

@@ -1,0 +1,73 @@
+<div class="container-xxl p-5">
+  <div class="row text-center">
+    <div class="col-12">
+      <div class="title-body">
+        <h2>弁当コック</h2>
+      </div>
+    </div>
+  </div>
+  <div class="row p-3">
+    <div class="card-columns">
+
+      <div class="card">
+        <h5 class="card-header">弁当一覧</h5>
+        <div class="card-body">
+          <p class="card-text">・販売中の弁当の確認<br/>・弁当の編集</p>
+          <div class="text-right">
+            <%= link_to "ページへ", admin_bento_index_path, class: "btn btn-outline-primary stretched-link" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h5 class="card-header">会員一覧</h5>
+        <div class="card-body">
+          <p class="card-text">・販売中の弁当の確認<br/>・弁当の編集</p>
+          <div class="text-right">
+            <%= link_to "ページへ", admin_customer_index_path, class: "btn btn-outline-primary stretched-link" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h5 class="card-header">注文履歴一覧</h5>
+        <div class="card-body">
+          <p class="card-text">・販売中の弁当の確認<br/>・弁当の編集</p>
+          <div class="text-right">
+            <%= link_to "ページへ", admin_customer_index_path, class: "btn btn-outline-primary stretched-link" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h5 class="card-header">おかず一覧</h5>
+        <div class="card-body">
+          <p class="card-text">・販売中のおかずの確認<br/>・弁当の編集</p>
+          <div class="text-right">
+            <%= link_to "ページへ", admin_dishes_path, class: "btn btn-outline-primary stretched-link" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h5 class="card-header">配送状況</h5>
+        <div class="card-body">
+          <p class="card-text">・配送している弁当の確認<br/>・配送ステータスの編集</p>
+          <div class="text-right">
+            <%= link_to "ページへ", admin_bento_index_path, class: "btn btn-outline-primary stretched-link" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h5 class="card-header">カテゴリー一覧</h5>
+        <div class="card-body">
+          <p class="card-text">・弁当カテゴリー追加・確認<br/>・おかずカテゴリー追加の編集</p>
+          <div class="text-right">
+            <%= link_to "ページへ", admin_genres_path, class: "btn btn-outline-primary stretched-link" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

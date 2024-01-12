@@ -1,0 +1,34 @@
+<div class="container-xxl p-5">
+  <div class="row text-center">
+    <div class="col-12">
+      <div class="title-body">
+        <h2>従業員ログイン</h2>
+      </div>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= render "public/shared/error_messages", resource: resource %>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <div class="m-3">
+          <div class="m-auto p-3" style="background-color: #e6f5ff; width: 430px;">
+            <div class="field text-left">
+              <%= f.label :name,"名前" %><br />
+              <%= f.text_field :name, autofocus: true, autocomplete: "名前" %>
+            </div>
+            <div class="field text-left">
+              <%= f.label :password,"パスワード" %><br />
+              <%= f.password_field :password, autocomplete: "current-password" ,:placeholder => "パスワード" ,size: 46 %>
+            </div>
+
+          <div class="row">
+            <div class="col-8 offset-4"><br />
+              <%= f.submit "ログイン" ,class: "btn btn-outline-success" %>
+            </div>
+          </div>
+
+        </div>
+      <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>
