@@ -7,11 +7,12 @@ class Order < ApplicationRecord
     "製作中": 0,
     "製作完了": 1,
     "配送待ち": 2,
-    "配送済": 3,
+    "配送中": 3,
+    "配送済": 4,
    }
 
-  def full_address
-    self.post_code + self.address + self.name
+  def address_display
+  '〒' + post_code.to_s + ' ' + address + ' ' + name
   end
 
   def subtotal

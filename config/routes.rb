@@ -5,6 +5,13 @@ Rails.application.routes.draw do
   delete 'carts/destroy_all' => 'public/carts#destroy_all'
   patch 'carts/:id' => 'public/carts#update', as: 'cart'
   delete 'carts/:id' => 'public/carts#destroy'
+  
+  get 'order' => 'public/order#new', as: 'order'
+  post 'confirm' => 'public/order#confirm', as: 'confirm'
+  get 'thanks' => 'public/order#thanks', as: 'thanks'
+  get 'orders' => 'public/order#index', as: 'orders'
+  get 'order/:id' => 'public/order#show', as: 'order_show'
+  put 'order/create' => 'public/order#create', as: 'order_create'
 
   devise_for :customers,skip: [:passwords], controllers: {
     registrations: "public/registrations",
