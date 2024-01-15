@@ -32,7 +32,7 @@
         <% if customer_signed_in? %>
         <table>
           <tr>
-            <td><%= f.number_field :amount, :placeholder => "注文個数" %></td>
+            <td><%= f.number_field :amount, :placeholder => "注文個数", in: 0..2000 %></td>
             <td><%= f.submit "カートに入れる",  class: "btn btn-outline-success btn-sm" %></td>
           </tr>
         </table>

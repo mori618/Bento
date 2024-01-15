@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'orders/index'
+    get 'orders/show'
+  end
   get 'carts' => 'public/carts#index', as: 'carts'
   post 'carts' => 'public/carts#create'
   delete 'carts/destroy_all' => 'public/carts#destroy_all'
