@@ -1,15 +1,11 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-    get 'orders/index'
-    get 'orders/show'
-  end
   get 'carts' => 'public/carts#index', as: 'carts'
   post 'carts' => 'public/carts#create'
   delete 'carts/destroy_all' => 'public/carts#destroy_all'
   patch 'carts/:id' => 'public/carts#update', as: 'cart'
   delete 'carts/:id' => 'public/carts#destroy'
-  
+
   get 'order' => 'public/order#new', as: 'order'
   post 'confirm' => 'public/order#confirm', as: 'confirm'
   get 'thanks' => 'public/order#thanks', as: 'thanks'
@@ -43,6 +39,11 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: "homes#top"
     resources :admin, :bento, :customer ,:dishes ,:genres ,:genre_dishes
+    get '/orders', to: 'orders#index', as: 'orders'
+    get '/order/:id', to: 'orders#show', as: 'order'
+    put '/order/:id', to: 'orders#update', as: 'order_update'
+    put '/order/:id/orderdetail/:detail_id', to: 'order_details#update', as: 'order_detail_update'
+
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
