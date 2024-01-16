@@ -14,7 +14,7 @@
                 <h6 class="p-2" style="background-color: #e6f5ff;"><%= f.bento_box.name %><%= f.bento_box.price%>円</h6>
               <div class="card-body d-flex flex-column">
                 <%= form_with model: f, url: cart_path(f), method: :patch do |d| %>
-                  <%= d.number_field :amount, :placeholder => "注文個数", style: "margin: 0; width: 100px;" %>　個<%= d.submit "変更", class: "btn btn-outline-success btn-sm ml-2 mb-1" %>
+                  <%= d.number_field :amount, :placeholder => "注文個数", style: "margin: 0; width: 100px;", in: 0..2000 %>　個<%= d.submit "変更", class: "btn btn-outline-success btn-sm ml-2 mb-1" %>
                 <% end %>
                 <p class="card-text m-1" style="background-color: #e6f5ff;">小計：　<%= f.subtotal%>円</p>
                 <div class="ml-auto">

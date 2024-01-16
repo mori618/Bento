@@ -1,0 +1,21 @@
+
+<div class="genre_search">
+  <table class="table table-hover ">
+    <tr>
+      <th>カテゴリー検索</th>
+    </tr>
+
+    <%= form_with url: genre_search_path(@genres), method: :get do |f| %>
+      <% @genres.each do |genre| %>
+        <tr class="institution_index_tbody_tr" data-href="/genre/search/<%= genre.id %>">
+          <td><%= link_to genre.name, genre_search_path(genre.id), method: :get %></td>
+        </tr>
+      <% end %>
+    <% end %>
+
+    <tr class="institution_index_tbody_tr" data-href="/bento/index">
+      <td><%= link_to "一覧",bento_index_path %></td>
+    </tr>
+
+  </table>
+</div>

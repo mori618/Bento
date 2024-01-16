@@ -36,9 +36,8 @@
                 <%= link_to "会員一覧", admin_customer_index_path, class: "nav-link" %>
               </li>
               <li class="nav-item text-right">
-                <%= link_to "注文履歴一覧", admin_customer_index_path, class: "nav-link" %>
+                <%= link_to "注文履歴一覧", admin_orders_path, class: "nav-link" %>
               </li>
-
               <li class="nav-item text-right">
                 <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link" %>
               </li>
@@ -60,6 +59,9 @@
               <% end %>
               <li class="nav-item text-right">
                 <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "nav-link" %>
+              </li>
+              <li class="nav-item text-right">
+                <%= link_to "企業理念", about_path, class: "nav-link" %>
               </li>
             <% else %>
               <li class="nav-item text-right">
