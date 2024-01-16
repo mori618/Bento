@@ -1,7 +1,7 @@
 class Admin::OrdersController < ApplicationController
   def index
-    @orders = Order.all.page(params[:page])
-    
+    @orders = Order.all.page(params[:page]).order(id: "DESC")
+
   end
 
   def show
@@ -10,23 +10,18 @@ class Admin::OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-    @order.status += 1
-    if @order.update(order_params)
-      if @order.status == "製作中"
-        order_making_time = OrderMakingTime.new
-        order_making_time.order_id = @order.id
-        order_making_time.start_at = Time.zone.now
-        order_making_time.save
-      elsif @order.status == "配送中"
-        @order.order_making_time.shipping_start_at = Time.zone.now
-        @order.order_making_time.save
-      elsif @order.status == "配送済"
-        @order.order_making_time.shipping_end_at = Time.zone.now
-        @order.order_making_time.save
-      end
+    if @order.status == "waiting_delivery"
+      @order.status = "delivering"
+      @order.order_making_time.shipping_start_at = Time.zone.now
+      @order.order_making_time.save
+      @order.save
       redirect_to admin_order_path(@order), notice: "変更を完了しました"
-    else
-      render admin_order_path(@order)
+    elsif @order.status == "delivering"
+      @order.status = "delivered"
+      @order.order_making_time.shipping_end_at = Time.zone.now
+      @order.order_making_time.save
+      @order.save
+      redirect_to admin_order_path(@order), notice: "変更を完了しました"
     end
   end
 

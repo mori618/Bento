@@ -35,6 +35,8 @@ Rails.application.routes.draw do
 
   get '/dishes', to: 'public/dushes#index', as: 'dishes'
   get '/dish/:id', to: 'public/dishes#show', as: 'dish'
+  get '/genre/search/:id' => 'public/searches#genre_search', as: 'genre_search'
+  get '/genre/dish/search/:id' => 'public/searches#genre_dish_search', as: 'genre_dish_search'
 
   namespace :admin do
     root to: "homes#top"
@@ -43,6 +45,9 @@ Rails.application.routes.draw do
     get '/order/:id', to: 'orders#show', as: 'order'
     put '/order/:id', to: 'orders#update', as: 'order_update'
     put '/order/:id/orderdetail/:detail_id', to: 'order_details#update', as: 'order_detail_update'
+    get '/genre/search/:id' => 'searches#genre_search', as: 'genre_search'
+    get '/genre/dish/search/:id' => 'searches#genre_dish_search', as: 'genre_dish_search'
+
 
   end
 

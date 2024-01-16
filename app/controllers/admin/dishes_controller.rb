@@ -1,6 +1,7 @@
 class Admin::DishesController < ApplicationController
   def index
-    @dishes = Dish.page(params[:page]).per(8)
+    @dishes = Dish.page(params[:page]).per(6)
+    @genres = GenreDish.all
   end
 
   def show

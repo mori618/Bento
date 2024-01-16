@@ -1,0 +1,20 @@
+<div class="genre_search">
+  <table class="table table-hover ">
+    <tr>
+      <th>ジャンル検索</th>
+    </tr>
+
+    <%= form_with url: genre_dish_search_path(@genres), method: :get do |f| %>
+      <% @genres.each do |genre| %>
+        <tr class="institution_index_tbody_tr" data-href="/genre/dish/search/<%= genre.id %>">
+          <td><%= link_to genre.name, genre_dish_search_path(genre.id), method: :get %></td>
+        </tr>
+      <% end %>
+    <% end %>
+
+    <tr class="institution_index_tbody_tr" data-href="/dishes">
+      <td><%= link_to "一覧",dishes_path %></td>
+    </tr>
+    
+  </table>
+</div>

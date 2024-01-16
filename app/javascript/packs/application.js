@@ -15,7 +15,7 @@ import "jquery";
 import "popper.js";
 import "bootstrap";
 import "../stylesheets/application";
-import "packs/order.js"
+import "packs/institution.js"
 
 Rails.start()
 Turbolinks.start()

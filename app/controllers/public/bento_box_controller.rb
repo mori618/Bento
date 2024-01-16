@@ -1,6 +1,7 @@
 class Public::BentoBoxController < ApplicationController
   def index
     @bentoes = BentoBox.where(is_active: "true").page(params[:page]).per(8)
+    @genres = Genre.all
   end
 
   def show

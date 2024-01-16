@@ -1,6 +1,7 @@
 class Admin::BentoController < ApplicationController
   def index
-    @bentoes = BentoBox.page(params[:page]).per(8)
+    @bentoes = BentoBox.page(params[:page]).per(6)
+    @genres = Genre.all
   end
 
   def show
