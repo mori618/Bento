@@ -3,21 +3,26 @@ class Admin::OrderDetailsController < ApplicationController
     @order = Order.find(params[:id])
     @order_detail = @order.order_details.find(params[:detail_id])
 
-    if @order_detail.making_status == "製作待ち"
-      @order_detail.making_status = "製作中"
+    if @order_detail.making_status == "waiting"
+      @order_detail.making_status = "in_progress"
       order_detail_making_time = OrderDetailMakingTime.new
       order_detail_making_time.order_detail_id = @order_detail.id
       order_detail_making_time.start_at = Time.zone.now
+      @order_detail.order_detail_making_time = order_detail_making_time
       order_detail_making_time.save
-      redirect_to admin_order_path(@order), notice: "変更を完了しました"
-    elsif @order_detail.making_status == "製作中"
-      @order_detail.making_status = "製作完了"
+      @order_detail.save
+      redirect_to admin_order_path(@order), notice: "変更を完了しました1"
+    elsif @order_detail.making_status == "in_progress"
+      @order_detail.making_status = "completed"
       @order_detail.order_detail_making_time.end_at = Time.zone.now
+      @order_detail.save
       @order_detail.order_detail_making_time.save
-      redirect_to admin_order_path(@order), notice: "変更を完了しました"
+      redirect_to admin_order_path(@order), notice: "変更を完了しました2"
+    else
+      redirect_to admin_order_path(@order), notice: "製作ステータスが無効です"
     end
 
-    if @order.order_details.all? { |detail| detail.making_status == "製作完了" }
+    if @order.order_details.all? { |detail| detail.making_status == "completed" }
         @order.update(status: 2)
         @order.order_making_time.end_at = Time.zone.now
         @order.order_making_time.save

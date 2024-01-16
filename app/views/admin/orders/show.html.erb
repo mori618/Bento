@@ -4,6 +4,9 @@
       <div class="title-body">
         <h2>注文履歴詳細</h2>
       </div>
+      <% if flash[:notice] %>
+        <%= notice %>
+      <% end %>
       <div class="row d-flex justify-content-center m-3">
         <div class="col-md-8 max-box d-flex flex-wrap">
           <% @nedan = 0 %>
@@ -15,7 +18,20 @@
                 <h6 class="p-2" style="background-color: #e6f5ff;"><%= f.bento_box.name %><%= f.bento_box.price%>円</h6>
                 <p class="card-text m-1"><%= f.amount %>個</p>
                 <p class="card-text m-1" style="background-color: #e6f5ff;">小計：　<%= f.subtotal%>円</p>
-                <p class="card-text m-1"><%= f.making_status_i18n %></p>
+                <p class="card-text m-1 text-success"><%= f.making_status_i18n %></p>
+
+                <% time = f.order_detail_making_time %>
+                <% if time %>
+                  <% if time.start_at %>
+                    <p class="card-text m-1" style="background-color: #e6f5ff;">製作開始</p>
+                    <p class="card-text m-1"><%= time.start_at.strftime('%Y/%m/%d %H:%M:%S') %></p>
+                  <% end %>
+                  <% if time.end_at %>
+                    <p class="card-text m-1" style="background-color: #e6f5ff;">製作終了</p>
+                    <p class="card-text m-1"><%= time.end_at.strftime('%Y/%m/%d %H:%M:%S') %></p>
+                  <% end %>
+                <% end %>
+
                 <%= link_to "更新する",admin_order_detail_update_path(@order, f), method: :put, class: "btn btn-outline-primary btn-sm stretched-link"%>
               </div>
             </div>
