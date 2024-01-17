@@ -4,36 +4,73 @@
       <div class="title-body">
         <h2>マイページ</h2>
       </div>
+      <div class="row">
+        <div class="col-md-6">
+          <table class="table table-striped table-hover mt-3" style="background-color: #fff;">
+            <tr>
+              <th style="width: 30%">会員ID</th>
+              <td><%= @customer.id %></td>
+            </tr>
+            <tr>
+              <th>氏名</th>
+              <td><%= @customer.last_name %>　<%= @customer.first_name %></td>
+            </tr>
+            <tr>
+              <th>シメイ</th>
+              <td><%= @customer.last_name_kana %>　<%= @customer.first_name_kana %></td>
+            </tr>
+            <tr>
+              <th>郵便番号</th>
+              <td><%= @customer.post_code %></td>
+            </tr>
+            <tr>
+              <th>住所</th>
+              <td><%= @customer.address %></td>
+            </tr>
+            <tr>
+              <th>電話番号</th>
+              <td><%= @customer.telephone_number %></td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-md-6">
+          <table class="table table-striped table-hover mt-3" style="background-color: #fff;">
+            <%= flash[:notice] %>
+            <tr>
+              <th style="width: 30%">配送先一覧</th>
+            </tr>
+            <tr>
+              <td><%= @customer.address_display %></td>
+            </tr>
 
-      <table class="table table-striped table-hover mt-3" style="background-color: #fff;">
-        <%= flash[:notice] %>
-        <tr>
-          <th style="width: 30%">会員ID</th>
-          <td><%= @customer.id %></td>
-        <tr>
-          <th>氏名</th>
-          <td><%= @customer.last_name %>　<%= @customer.first_name %></td>
-        </tr>
-        <tr>
-          <th>シメイ</th>
-          <td><%= @customer.last_name_kana %>　<%= @customer.first_name_kana %></td>
-        </tr>
-        <tr>
-          <th>郵便番号</th>
-          <td><%= @customer.post_code %></td>
-        </tr>
-        <tr>
-          <th>住所</th>
-          <td><%= @customer.address %></td>
-        </tr>
-        <tr>
-          <th>電話番号</th>
-          <td><%= @customer.telephone_number %></td>
-        </tr>
-        <tr>
-
-
-      </table>
+            <% @customer.addresses.each do |address| %>
+              <tr>
+                <td><%= address.address_display %></td>
+              </tr>
+            <% end %>
+          </table>
+          <%= form_with model:@address , url: address_path, method: :put, local:true do |f| %>
+            <div class="m-auto p-3" style="background-color: #e6f5ff; width: 430px;">
+              <div class="field text-left">
+                <%= f.label :address_type, "新しい配送先を登録する" %><br />
+                <%= f.label :name,"お名前" %><br />
+                <%= f.text_field :name , :placeholder => "お名前" ,size: 30 %>
+              </div>
+              <div class="field text-left">
+                <%= f.label :post_code ,"郵便番号" %><br />
+                <%= f.text_field :post_code ,:placeholder => "0000000   ハイフンなし" %>
+              </div>
+              <div class="field text-left">
+                <%= f.label :address ,"住所" %><br />
+                <%= f.text_field :address ,:placeholder => "京都府京都市",size: 46%>
+              </div>
+              <div class="field">
+                <%= f.submit "登録する" ,class: "m-2 btn btn-outline-success" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
   <div class="row float-right">

@@ -38,6 +38,8 @@ Rails.application.routes.draw do
   get '/genre/search/:id' => 'public/searches#genre_search', as: 'genre_search'
   get '/genre/dish/search/:id' => 'public/searches#genre_dish_search', as: 'genre_dish_search'
 
+  put '/address' => 'public/address#create', as: 'address'
+
   namespace :admin do
     root to: "homes#top"
     resources :admin, :bento, :customer ,:dishes ,:genres ,:genre_dishes
@@ -47,7 +49,6 @@ Rails.application.routes.draw do
     put '/order/:id/orderdetail/:detail_id', to: 'order_details#update', as: 'order_detail_update'
     get '/genre/search/:id' => 'searches#genre_search', as: 'genre_search'
     get '/genre/dish/search/:id' => 'searches#genre_dish_search', as: 'genre_dish_search'
-
 
   end
 
