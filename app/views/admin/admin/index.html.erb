@@ -1,2 +1,37 @@
-<h1>Admin::Admin#index</h1>
-<p>Find me in app/views/admin/admin/index.html.erb</p>
+<div class="container-xxl p-5">
+  <div class="row text-center">
+    <div class="col-12">
+      <div class="title-body">
+        <h2>従業員一覧</h2>
+      </div>
+
+      <table class="table table-striped table-hover mt-3 mobile-blocky" style="background-color: #fff;">
+        <thead>
+          <tr>
+            <th>氏名</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+
+        <% @admins.each do |admin| %>
+          <tr class="institution_index_tbody_tr" data-href="admin/<%= admin.id %>">
+ 
+            <td><%= link_to "#{admin.name}",admin_admin_path(admin) %></td>
+            
+
+            <td>
+              <% if admin.is_active %>
+                <div class="text-success">在籍</div>
+              <% else %>
+                退職
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+
+          <%= paginate @admins %>
+
+    </div>
+  </div>
+</div>

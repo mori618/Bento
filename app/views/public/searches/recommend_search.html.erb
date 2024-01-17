@@ -5,12 +5,12 @@
         <%= render 'public/searches/genre.html.erb' %>
       <% end %>
     </div>
-    <div class="col-10">
+    <div class="col-md-10">
       <div class="title-body">
-        <h2>弁当一覧</h2>
+        <h2>弁当一覧(おすすめ)</h2>
       </div>
 
-      <div class="max-box d-flex flex-wrap">
+      <div class="max-box d-flex flex-wrap justify-content-center ">
         <% if @bento.present? %>
           <div class="card m-3" style="width: 18rem;">
             <%= image_tag @bento.bento_image, class: "card-img-top", alt: @bento.name %>

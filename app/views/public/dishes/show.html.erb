@@ -6,7 +6,7 @@
       </div>
       <div class="row d-flex justify-content-center m-3">
         <% if @dish.present? %>
-          <div class="col-8 text-left">
+          <div class="col-md-8 text-left">
             <%= image_tag @dish.dish_image,class:"img-fluid" ,style: "width:50%;" %>
             <%= @dish.introduction %>
           </div>

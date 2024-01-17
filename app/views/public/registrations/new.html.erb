@@ -6,45 +6,45 @@
       </div>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "public/shared/error_messages", resource: resource %>
-        <div class="m-3">
-          <div class="m-auto p-3" style="background-color: #e6f5ff; width: 430px;">
+        <div class="m-3 max-width">
+          <div class="m-auto p-3 max-width" style="background-color: #e6f5ff; width: 430px;">
             <div class="field text-left">
               <%= f.label :last_name,"名前" %><br />
-              <%= f.text_field :last_name , autofocus: true, :placeholder => "姓" %> <%= f.text_field :first_name ,:placeholder => "名"%>
+              <%= f.text_field :last_name , autofocus: true, :placeholder => "姓" %> <%= f.text_field :first_name ,:placeholder => "名", class: "max-width"%>
             </div>
             <div class="field text-left">
               <%= f.label :last_name_kana,"フリガナ" %><br />
-              <%= f.text_field :last_name_kana ,:placeholder => "セイ" %> <%= f.text_field :first_name_kana ,:placeholder => "セイ"%>
+              <%= f.text_field :last_name_kana ,:placeholder => "セイ" %> <%= f.text_field :first_name_kana ,:placeholder => "セイ", class: "max-width"%>
             </div>
             <div class="field text-left">
               <%= f.label :telephone_number,"電話番号" %><br />
-              <%= f.text_field :telephone_number,:placeholder => "00000000000   ハイフンなし" ,size: 46 %>
+              <%= f.text_field :telephone_number,:placeholder => "00000000000   ハイフンなし" ,size: 46 , class: "max-width"%>
             </div>
             <div class="field text-left">
               <%= f.label :email,"メールアドレス" %><br />
-              <%= f.email_field :email, autocomplete: "email",:placeholder => "email",size: 46 %>
+              <%= f.email_field :email, autocomplete: "email",:placeholder => "email",size: 46 , class: "max-width"%>
             </div>
             <div class="field text-left">
               <%= f.label :password,"パスワード（6文字以上）" %><br />
-              <%= f.password_field :password ,:placeholder => "password" ,size: 46%>
+              <%= f.password_field :password ,:placeholder => "password" ,size: 46, class: "max-width"%>
             </div>
             <div class="field text-left">
               <%= f.label :password_confirmation ,"パスワード（確認）" %><br />
-              <%= f.password_field :password_confirmation ,:placeholder => "password" ,size: 46%>
+              <%= f.password_field :password_confirmation ,:placeholder => "password" ,size: 46, class: "max-width"%>
             </div>
             <div class="field text-left">
               <%= f.label :post_code ,"郵便番号" %><br />
-              <%= f.text_field :post_code ,:placeholder => "0000000   ハイフンなし" %>
+              <%= f.text_field :post_code ,:placeholder => "0000000   ハイフンなし" , class: "max-width"%>
             </div>
             <div class="field text-left">
               <%= f.label :address ,"住所" %><br />
-              <%= f.text_field :address ,:placeholder => "京都府京都市",size: 46%>
+              <%= f.text_field :address ,:placeholder => "京都府京都市",size: 46, class: "max-width"%>
             </div>
           </div>
         </div>
 
         <div class="row">
-          <div class="col-8 offset-4"><br />
+          <div class="col-md-8 offset-4"><br />
             <%= f.submit "新規登録" ,class: "btn btn-outline-success"%>
           </div>
         </div>
