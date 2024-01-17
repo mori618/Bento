@@ -1,2 +1,44 @@
-<h1>Admin::Admin#new</h1>
-<p>Find me in app/views/admin/admin/new.html.erb</p>
+<div class="container-xxl p-5">
+  <div class="row text-center">
+    <div class="col-12">
+      <div class="title-body">
+        <h2>従業員新規登録</h2>
+      </div>
+      <%= form_for(@admin, url:admin_admin_index_path) do |f| %>
+        <%= render "admin/shared/error_messages", resource: @admin %>
+        <div class="m-3">
+          <div class="m-auto p-3 max-width" style="background-color: #e6f5ff; width: 430px;">
+            <div class="field text-left">
+              <%= f.label :name,"名前" %><br />
+              <%= f.text_field :name , autofocus: true, :placeholder => "名前" , class: "max-width" %>
+            </div>
+            <div class="field text-left">
+              <%= f.label :phone_number,"電話番号" %><br />
+              <%= f.text_field :phone_number,:placeholder => "00000000000   ハイフンなし" ,size: 46 , class: "max-width" %>
+            </div>
+            <div class="field text-left">
+              <%= f.label :email,"メールアドレス" %><br />
+              <%= f.email_field :email, autocomplete: "email",:placeholder => "email",size: 46 , class: "max-width" %>
+            </div>
+            <div class="field text-left">
+              <%= f.label :password, "パスワード"%>
+              <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %><br />
+              <%= f.password_field :password, autocomplete: "new-password" %>
+            </div>
+
+            <div class="field text-left">
+              <%= f.label :password_confirmation, "パスワード(確認)" %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+            </div>
+
+            <div class="actions">
+              <%= f.submit "新規登録" , class: "btn btn-outline-success m-2" %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+    </div>
+  </div>
+</div>

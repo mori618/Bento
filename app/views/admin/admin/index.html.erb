@@ -9,16 +9,16 @@
         <thead>
           <tr>
             <th>氏名</th>
+            <th>電話番号</th>
             <th>ステータス</th>
+            <th></th>
           </tr>
         </thead>
 
         <% @admins.each do |admin| %>
-          <tr class="institution_index_tbody_tr" data-href="admin/<%= admin.id %>">
- 
-            <td><%= link_to "#{admin.name}",admin_admin_path(admin) %></td>
-            
-
+          <tr>
+            <td><%= admin.name %></td>
+            <td><%= admin.phone_number %></td>
             <td>
               <% if admin.is_active %>
                 <div class="text-success">在籍</div>
@@ -26,12 +26,19 @@
                 退職
               <% end %>
             </td>
+            <td>
+              <%= link_to "編集する",edit_admin_admin_path(admin), class: "btn btn-outline-primary btn-sm" %>
+            </td>
           </tr>
         <% end %>
       </table>
-
           <%= paginate @admins %>
 
+    </div>
+  </div>
+  <div class="row float-right">
+    <div>
+      <%= link_to "従業員新規登録",new_admin_admin_path %>
     </div>
   </div>
 </div>
