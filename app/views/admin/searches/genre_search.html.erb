@@ -18,6 +18,9 @@
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title mt-auto m-0"><%= bento.name %></h5>
                 <p class="card-text m-0"><%= bento.introduction %></p>
+                <% if bento.recommended %>
+                  <h6 class="text-success" style="background-color: #e6f5ff;">おすすめ中</h6>
+                <% end %>
                 <div class="float-right">
                   <%= link_to "詳細を見る",admin_bento_path(bento), class: "btn btn-outline-primary btn-sm stretched-link"%>
                 </div>

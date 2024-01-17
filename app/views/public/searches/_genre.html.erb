@@ -11,9 +11,18 @@
       </tr>
     <% end %>
 
+    <% @recommended_bento = BentoBox.find_by(recommended: true) %>
+    <% if @recommended_bento %>
+      <tr class="institution_index_tbody_tr" data-href="/genre/recommend/search/<%= @recommended_bento.id %>">
+        <td><%= link_to "おすすめ",recommend_search_path(@recommended_bento) %></td>
+      </tr>
+    <% end %>
+
     <tr class="institution_index_tbody_tr" data-href="/bento/index">
       <td><%= link_to "一覧",bento_index_path %></td>
     </tr>
+
+
 
   </table>
 </div>

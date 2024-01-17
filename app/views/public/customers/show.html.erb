@@ -49,7 +49,8 @@
               </tr>
             <% end %>
           </table>
-          <%= form_with model:@address , url: address_path, method: :put, local:true do |f| %>
+          <%= form_with model:@address , url: address_path, local:true do |f| %>
+            <%= f.hidden_field :customer_id , value: current_customer.id %>
             <div class="m-auto p-3" style="background-color: #e6f5ff; width: 430px;">
               <div class="field text-left">
                 <%= f.label :address_type, "新しい配送先を登録する" %><br />
