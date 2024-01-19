@@ -15,6 +15,11 @@
                 <h6 class="p-2" style="background-color: #e6f5ff;"><%= f.bento_box.name %><%= f.bento_box.price%>円</h6>
                 <p class="card-text m-1"><%= f.amount %>個</p>
                 <p class="card-text m-1" style="background-color: #e6f5ff;">小計：　<%= f.subtotal%>円</p>
+                <% if f.bento_box.is_active %>
+                  <%= link_to "商品ページへ",bento_path(f.bento_box), class: "btn btn-outline-primary btn-sm stretched-link" %>
+                <% else %>
+                  <h6>現在取り扱っておりません</h6>
+                <% end %>
               </div>
             </div>
           <% end %>
@@ -27,6 +32,8 @@
             <h6 class="mt-0 p-2"><%= @order.address_display %></h6>
             <h6 class="mb-0 p-2 text-left" style="background-color: #fff; border-radius: 10px;">配送状況</h6>
             <h6 class="mt-0 p-2"><%= @order.status_i18n %></h6>
+            <h6 class="mb-0 p-2 text-left" style="background-color: #fff; border-radius: 10px;">希望お届け時間</h6>
+            <h6 class="mt-0 p-2"><%= @order.delivery_time.strftime('%Y/%m/%d %H時%M分') %></h6>
           </div>
 
         </div>

@@ -23,7 +23,7 @@ class Public::OrderController < ApplicationController
       params[:order].delete(:address_type)
     when "registered_address"
       unless params[:order][:registered_address_id] == ""
-        address = Address.find(params[:order][:registered_address_id])
+        address = current_customer.addresses.find(params[:order][:address_id])
         @order.post_code = address.post_code
         @order.address = address.address
         @order.name = address.name
@@ -68,7 +68,7 @@ class Public::OrderController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:post_code, :address, :name, :shipping_cost, :total_payment, :customer_id)
+    params.require(:order).permit(:post_code, :address, :name, :shipping_cost, :total_payment, :customer_id, :delivery_time)
   end
 
 

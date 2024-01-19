@@ -6,7 +6,7 @@
       </div>
       <div class="row d-flex justify-content-center m-3">
         <% if @bento.present? %>
-          <div class="col-8 text-left">
+          <div class="col-md-8 text-left">
             <div class="row">
               <div class="col-md-6">
                 <%= image_tag @bento.bento_image,class:"img-fluid" ,style: "width:50%;" %>
@@ -19,10 +19,16 @@
                 <h6 class="p-2" style="background-color: #e6f5ff;">カテゴリー</h6>
                 　<%= @bento.genre.name %>
                 <h6 class="p-2" style="background-color: #e6f5ff;">販売状況</h6>
-                　<% if @bento.is_active %>
+                <% if @bento.is_active %>
                   <span class="text-success">　販売中</span>
                 <% else %>
                   　販売停止中
+                <% end %>
+                <h6 class="p-2" style="background-color: #e6f5ff;">ステータス</h6>
+                <% if @bento.recommended %>
+                  <h6 class="text-success">　おすすめ商品</h6>
+                <% else %>
+                  <%= link_to "おすすめ商品にする",admin_recommend_path(@bento), method: :put , class: " m-2 btn btn-outline-primary btn-sm" %>
                 <% end %>
               </div>
             </div>

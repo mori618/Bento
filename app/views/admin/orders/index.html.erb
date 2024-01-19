@@ -5,7 +5,7 @@
         <h2>注文履歴一覧</h2>
       </div>
 
-      <table class="table table-striped table-hover mt-3" style="background-color: #fff;">
+      <table class="table table-striped table-hover mt-3 mobile-blocky" style="background-color: #fff;">
         <thead>
           <tr>
             <th>注文日時</th>
@@ -13,6 +13,7 @@
             <th>お届け先</th>
             <th>注文商品</th>
             <th>総額</th>
+            <th>希望配送時間</th>
             <th>配送状況</th>
             <th>総製作時間</th>
             <th>配達時間</th>
@@ -35,22 +36,34 @@
               <%= order.total_payment %>円
             </td>
             <td>
+              <% if order.delivery_time %>
+                <%= order.delivery_time.strftime('%Y/%m/%d %H時%M分') %>
+              <% end %>
+            </td>
+            <td>
               <%= order.status_i18n %>
             </td>
 
             <% if order.order_making_time %>
+
               <% if order.order_making_time.end_at %>
-              <td>
-                <%= order.order_making_time.elapsed_time %>
-              </td>
+                <td>
+                  <%= order.order_making_time.elapsed_time %>
+                </td>
+              <% elsif order.order_making_time.start_at %>
+                <td class="bg-warning">
+                </td>
               <% else %>
                 <td class="bg-danger">
                 </td>
               <% end %>
               <% if order.order_making_time.shipping_end_at %>
-              <td>
-                <%= order.order_making_time.shipping_elapsed_time %>
-              </td>
+                <td>
+                  <%= order.order_making_time.shipping_elapsed_time %>
+                </td>
+              <% elsif order.order_making_time.shipping_start_at %>
+                <td class="bg-warning">
+                </td>
               <% else %>
                 <td class="bg-danger">
                 </td>

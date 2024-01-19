@@ -48,6 +48,13 @@ class Admin::BentoController < ApplicationController
     redirect_to admin_bento_index_path
   end
 
+  def recommend
+    BentoBox.update_all(recommended: false)
+    bento = BentoBox.find(params[:id])
+    bento.update(recommended: true)
+    redirect_to admin_bento_path(bento)
+  end
+
   private
 
   def bento_params

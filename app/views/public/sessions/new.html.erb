@@ -5,15 +5,15 @@
         <h2>会員ログイン</h2>
       </div>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="m-3">
-          <div class="m-auto p-3" style="background-color: #e6f5ff; width: 430px;">
+        <div class="m-3 max-width">
+          <div class="m-auto p-3 max-width" style="background-color: #e6f5ff; width: 430px;">
             <div class="field text-left">
               <%= f.label :email,"メールアドレス" %><br />
-              <%= f.email_field :email, autofocus: true, autocomplete: "email",:placeholder => "email",size: 46 %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email",:placeholder => "email",size: 46 , class: "max-width" %>
             </div>
             <div class="field text-left">
               <%= f.label :password,"パスワード（6文字以上）" %><br />
-              <%= f.password_field :password, autocomplete: "current-password" ,:placeholder => "password" ,size: 46 %>
+              <%= f.password_field :password, autocomplete: "current-password" ,:placeholder => "password" ,size: 46 , class: "max-width" %>
             </div>
             <div class="field text-center"><br />
               <% if devise_mapping.rememberable? %>
@@ -26,7 +26,7 @@
         </div>
 
         <div class="row">
-          <div class="col-8 offset-4"><br />
+          <div class="col-md-8 offset-4"><br />
             <%= f.submit "ログイン" ,class: "btn btn-outline-success" %>
           </div>
         </div>

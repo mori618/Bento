@@ -5,7 +5,9 @@ class Public::CustomersController < ApplicationController
 
   def show
     @customer = current_customer
+    @address = Address.new
   end
+
   def update
     @customer = current_customer
     if @customer.update(customer_params)

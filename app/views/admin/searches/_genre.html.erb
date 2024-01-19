@@ -4,12 +4,17 @@
       <th>カテゴリー検索</th>
     </tr>
 
-    <%= form_with url: admin_genre_search_path(@genres), method: :get do |f| %>
-      <% @genres.each do |genre| %>
-        <tr class="institution_index_tbody_tr" data-href="/admin/genre/search/<%= genre.id %>">
-          <td><%= link_to genre.name, admin_genre_search_path(genre.id), method: :get %></td>
-        </tr>
-      <% end %>
+    <% @genres.each do |genre| %>
+      <tr class="institution_index_tbody_tr" data-href="/admin/genre/search/<%= genre.id %>">
+        <td><%= link_to genre.name, admin_genre_search_path(genre.id) %></td>
+      </tr>
+    <% end %>
+
+    <% @recommended_bento = BentoBox.find_by(recommended: true) %>
+    <% if @recommended_bento %>
+      <tr class="institution_index_tbody_tr" data-href="/admin/genre/recommend/search/<%= @recommended_bento.id %>">
+        <td><%= link_to "おすすめ",admin_recommend_path(@recommended_bento) %></td>
+      </tr>
     <% end %>
 
     <tr class="institution_index_tbody_tr" data-href="/admin/bento">

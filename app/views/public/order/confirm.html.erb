@@ -25,12 +25,15 @@
             <h6 class="mt-0 p-2"><%= @nedan %>円</h6>
             <h6 class="mb-0 p-2 text-left" style="background-color: #fff; border-radius: 10px;">お届け先</h6>
             <h6 class="mt-0 p-2"><%= @order.address_display %></h6>
+            <h6 class="mb-0 p-2 text-left" style="background-color: #fff; border-radius: 10px;">希望お届け時間</h6>
+            <h6 class="mt-0 p-2"><%= @order.delivery_time.strftime('%Y/%m/%d %H時%M分') %></h6>
             <div class="ml-auto">
               <%= form_with model: @order, url: order_create_path, method: :put, local: true do |f| %>
                 <%= f.hidden_field :customer_id, value: current_customer.id %>
                 <%= f.hidden_field :post_code, value: @order.post_code %>
                 <%= f.hidden_field :address, value: @order.address %>
                 <%= f.hidden_field :name, value: @order.name %>
+                <%= f.hidden_field :delivery_time, value: @order.delivery_time %>
                 <%= f.hidden_field :total_payment, value: @nedan %>
 
                 <%= f.submit "注文を確定する", class: "btn btn-success btn-sm" %>

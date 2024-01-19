@@ -9,18 +9,18 @@
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
         <div class="m-3">
-          <div class="m-auto p-3" style="background-color: #e6f5ff; width: 430px;">
+          <div class="m-auto p-3 max-width" style="background-color: #e6f5ff; width: 430px;">
             <div class="field text-left">
               <%= f.label :name,"名前" %><br />
-              <%= f.text_field :name, autofocus: true, autocomplete: "名前" %>
+              <%= f.text_field :name, autofocus: true, autocomplete: "名前" , class: "max-width"%>
             </div>
             <div class="field text-left">
               <%= f.label :password,"パスワード" %><br />
-              <%= f.password_field :password, autocomplete: "current-password" ,:placeholder => "パスワード" ,size: 46 %>
+              <%= f.password_field :password, autocomplete: "current-password" ,:placeholder => "パスワード" ,size: 46 , class: "max-width"%>
             </div>
 
           <div class="row">
-            <div class="col-8 offset-4"><br />
+            <div class="col-md-8 offset-4"><br />
               <%= f.submit "ログイン" ,class: "btn btn-outline-success" %>
             </div>
           </div>
