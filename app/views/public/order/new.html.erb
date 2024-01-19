@@ -2,7 +2,7 @@
   <div class="row text-center">
     <div class="col-12">
       <div class="title-body">
-        <h2>お届け先</h2>
+        <h2>お届け先　お届け時間</h2>
       </div>
       <div class="m-3">
         <%= form_with model:@order , url: confirm_path, local:true do |f| %>
@@ -32,6 +32,10 @@
           <div class="field text-left">
             <%= f.label :address ,"住所" %><br />
             <%= f.text_field :address ,:placeholder => "京都府京都市",size: 46, class: "max-width"%>
+          </div>
+          <div class="field text-left">
+            <%= f.label :delibary_time ,"お届け希望時間" %><br />
+            <%= f.datetime_select :delivery_time, class: "max-width date-picker"%>
           </div>
           <div class="d-flex ">
             <%= f.submit "確認画面へ進む", class: "btn btn-success btn-sm m-2 ml-auto" %>

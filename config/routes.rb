@@ -43,7 +43,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: "homes#top"
-    resources :admin, :bento, :customer ,:dishes ,:genres ,:genre_dishes
+    resources :bento, :customer ,:dishes ,:genres ,:genre_dishes
     put '/recommend/:id', to: 'bento#recommend', as: 'recommend'
     get '/orders', to: 'orders#index', as: 'orders'
     get '/order/:id', to: 'orders#show', as: 'order'
@@ -52,6 +52,7 @@ Rails.application.routes.draw do
     get '/genre/search/:id' => 'searches#genre_search', as: 'genre_search'
     get '/genre/dish/search/:id' => 'searches#genre_dish_search', as: 'genre_dish_search'
     get '/genre/recommend/search/:id' => 'searches#recommend_search', as: 'recommend_search'
+    get '/customer/:id/orders' => 'customer#orders', as: 'customer_orders'
 
   end
 

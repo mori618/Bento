@@ -17,6 +17,8 @@ import "bootstrap";
 import "../stylesheets/application";
 import "packs/institution.js"
 
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
