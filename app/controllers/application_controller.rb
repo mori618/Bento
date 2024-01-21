@@ -10,4 +10,11 @@ class ApplicationController < ActionController::Base
   def configure_admin_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
+  def authenticate_admin!
+    unless current_admin
+      redirect_to new_admin_session_path
+    end
+  end
+  
 end
+

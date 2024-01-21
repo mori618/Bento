@@ -1,4 +1,5 @@
 class Admin::SearchesController < ApplicationController
+  before_action :authenticate_admin!
 
   def genre_search
     @genre_id = params[:id]

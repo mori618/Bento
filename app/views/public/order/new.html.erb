@@ -5,7 +5,7 @@
         <h2>お届け先　お届け時間</h2>
       </div>
       <div class="m-3">
-        <%= form_with model:@order , url: confirm_path, local:true do |f| %>
+        <%= form_with model:@order , url: confirm_path, local:true, id: 'myForm' do |f| %>
         <div class="m-auto p-3 max-width" style="background-color: #e6f5ff; width: 430px;">
           <div class="field text-left">
             <%= f.radio_button :address_type, "customer_address", checked: true %>
@@ -33,6 +33,7 @@
             <%= f.label :address ,"住所" %><br />
             <%= f.text_field :address ,:placeholder => "京都府京都市",size: 46, class: "max-width"%>
           </div>
+
           <div class="field text-left">
             <%= f.label :delibary_time ,"お届け希望時間" %><br />
             <%= f.datetime_select :delivery_time, class: "max-width date-picker"%>

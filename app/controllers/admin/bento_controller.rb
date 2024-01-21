@@ -1,4 +1,6 @@
 class Admin::BentoController < ApplicationController
+  before_action :authenticate_admin!
+
   def index
     @bentoes = BentoBox.page(params[:page]).per(6)
     @genres = Genre.all
