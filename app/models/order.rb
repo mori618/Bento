@@ -12,6 +12,12 @@ class Order < ApplicationRecord
     delivered: 4
    }
 
+   validates :name, presence: true
+   validates :address, presence: true
+   validates :post_code, presence: true
+   validates :total_payment, presence: true
+   validates :delivery_time, presence: true
+
 
   def address_display
   '〒' + post_code.to_s + ' ' + address + ' ' + name

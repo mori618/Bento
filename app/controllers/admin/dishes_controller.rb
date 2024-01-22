@@ -1,4 +1,6 @@
 class Admin::DishesController < ApplicationController
+  before_action :authenticate_admin!
+
   def index
     @dishes = Dish.page(params[:page]).per(6)
     @genres = GenreDish.all

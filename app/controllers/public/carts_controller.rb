@@ -37,7 +37,7 @@ class Public::CartsController < ApplicationController
               @carts = current_customer.carts.all
               redirect_to carts_path
       else
-              redirect_to root_path
+              redirect_to bento_path(params[:cart][:bento_box_id])
       end
   end
 

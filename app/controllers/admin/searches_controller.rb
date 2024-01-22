@@ -1,4 +1,5 @@
 class Admin::SearchesController < ApplicationController
+  before_action :authenticate_admin!
 
   def genre_search
     @genre_id = params[:id]
@@ -15,9 +16,7 @@ class Admin::SearchesController < ApplicationController
   end
 
   def recommend_search
-    @genre_id = params[:id]
     @bento = BentoBox.find_by(recommended: true)
-    @genre = Genre.find(params[:id])
     @genres = Genre.all
   end
 end

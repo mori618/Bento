@@ -3,6 +3,8 @@ class OrderDetail < ApplicationRecord
   belongs_to :bento_box
   has_one :order_detail_making_time
   attribute :making_status, :integer, default: 0
+  validates :price, presence: true
+  validates :amount, presence: true
 
   enum making_status: {
     waiting: 0,

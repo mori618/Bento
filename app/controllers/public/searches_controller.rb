@@ -15,9 +15,7 @@ class Public::SearchesController < ApplicationController
   end
 
   def recommend_search
-    @genre_id = params[:id]
     @bento = BentoBox.find_by(recommended: true)
-    @genre = Genre.find(params[:id])
     @genres = Genre.all
   end
 
