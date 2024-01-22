@@ -13,7 +13,7 @@
     <% @recommended_bento = BentoBox.find_by(recommended: true) %>
     <% if @recommended_bento %>
       <tr class="institution_index_tbody_tr" data-href="/admin/genre/recommend">
-        <td><%= link_to "おすすめ",admin_recommend_path %></td>
+        <td><%= link_to "おすすめ",admin_recommend_search_path %></td>
       </tr>
     <% end %>
 

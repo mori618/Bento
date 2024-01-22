@@ -44,8 +44,8 @@
                 <%= b.check_box class:"form-control2" do %>
                     <%= b.check_box + b.text %>
                 <% end %>
+                  <%= image_tag b.object.dish_image,size: "50x50"%>
                   <%= b.label {b.text} %>
-                  <%= image_tag b.object.dish_image,size: "50x30"%>
                 </label>
               <% end %>
             </div>
