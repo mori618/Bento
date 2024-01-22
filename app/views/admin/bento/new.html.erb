@@ -38,7 +38,7 @@
               </div>
             </div>
             <div class="col-md-6 m-auto p-3 field text-left" style="background-color: #e6f5ff; width: 430px;">
-              <%= f.label :genre_id,"おかず" %><br />
+              <%= f.label :dish_id,"おかず" %><br />
               <%= f.collection_check_boxes(:dish_ids, @dishes, :id, :name) do |b| %>
                 <label class="checkbox-inline">
                 <%= b.check_box class:"form-control2" do %>

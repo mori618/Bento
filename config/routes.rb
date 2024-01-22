@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   get '/dish/:id', to: 'public/dishes#show', as: 'dish'
   get '/genre/search/:id' => 'public/searches#genre_search', as: 'genre_search'
   get '/genre/dish/search/:id' => 'public/searches#genre_dish_search', as: 'genre_dish_search'
-  get '/genre/recommend/search/:id' => 'public/searches#recommend_search', as: 'recommend_search'
+  get '/genre/recommend' => 'public/searches#recommend_search', as: 'recommend_search'
 
   post '/address' => 'public/address#create', as: 'address'
 
@@ -51,7 +51,7 @@ Rails.application.routes.draw do
     put '/order/:id/orderdetail/:detail_id', to: 'order_details#update', as: 'order_detail_update'
     get '/genre/search/:id' => 'searches#genre_search', as: 'genre_search'
     get '/genre/dish/search/:id' => 'searches#genre_dish_search', as: 'genre_dish_search'
-    get '/genre/recommend/search/:id' => 'searches#recommend_search', as: 'recommend_search'
+    get '/genre/recommend' => 'searches#recommend_search', as: 'recommend_search'
     get '/customer/:id/orders' => 'customer#orders', as: 'customer_orders'
 
   end
