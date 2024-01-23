@@ -1,5 +1,5 @@
 class Public::CartsController < ApplicationController
-  before_action :authenticate_member!, only: [:show]
+
 
   def index
     @carts = current_customer.carts.all
