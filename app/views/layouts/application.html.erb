@@ -12,7 +12,7 @@
   </head>
   <div class="main">
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000080;">
+      <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000000; border-bottom: 10px solid #e63d00">
         <% if admin_signed_in? %>
         <a class="navbar-brand" href="/admin"><h1>弁当コック</h1></a>
         <% else %>
@@ -83,10 +83,10 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <div class="dropdown-item">
-                    <%= link_to "企業理念", about_path %>
+                    <%= link_to "企業理念", about_path, class: "link-color" %>
                   </div>
                   <div class="dropdown-item">
-                    <%= link_to "従業員専用", comfirm_path %>
+                    <%= link_to "従業員専用", comfirm_path, class: "link-color" %>
                   </div>
 
                 </div>

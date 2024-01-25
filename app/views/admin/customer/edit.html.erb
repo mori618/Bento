@@ -14,7 +14,7 @@
         </ul>
       <% end %>
         <div class="m-3">
-          <div class="m-auto p-3 max-width" style="background-color: #e6f5ff; width: 430px;">
+          <div class="m-auto p-3 max-width gray" style=" width: 430px;">
             <div class="field text-left">
               <%= f.label :last_name,"名前" %><br />
               <%= f.text_field :last_name , autofocus: true, :placeholder => "姓" , class: "max-width" %> <%= f.text_field :first_name ,:placeholder => "名", class: "max-width" %>
@@ -62,7 +62,7 @@
     </div>
   <div class="row float-right">
     <div>
-      <%= link_to "会員情報に戻る",admin_customer_path(@customer) %>
+      <%= link_to "会員情報に戻る",admin_customer_path(@customer) ,class:"link-color" %>
     </div>
   </div>
 </div>

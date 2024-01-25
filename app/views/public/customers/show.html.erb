@@ -51,7 +51,7 @@
           </table>
           <%= form_with model:@address , url: address_path, local:true do |f| %>
             <%= f.hidden_field :customer_id , value: current_customer.id %>
-            <div class="m-auto p-3" style="background-color: #e6f5ff; width: 430px;">
+            <div class="m-auto p-3 gray" style="width: 430px;">
               <div class="field text-left">
                 <%= f.label :address_type, "新しい配送先を登録する" %><br />
                 <%= f.label :name,"お名前" %><br />
@@ -66,7 +66,7 @@
                 <%= f.text_field :address ,:placeholder => "京都府京都市",size: 46%>
               </div>
               <div class="field">
-                <%= f.submit "登録する" ,class: "m-2 btn btn-outline-success" %>
+                <%= f.submit "登録する" ,class: "m-2 btn btn-success" %>
               </div>
             </div>
           <% end %>
@@ -76,7 +76,7 @@
   </div>
   <div class="row float-right">
     <div>
-      <%= link_to "会員情報を編集する",edit_customer_path %>
+      <%= link_to "会員情報を編集する",edit_customer_registration_path ,class:"link-color"%>
       </div>
   </div>
 </div>

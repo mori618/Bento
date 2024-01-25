@@ -4,25 +4,25 @@
       <div class="title-body">
         <h2><%= @bento.name %></h2>
       </div>
-      <div class="row d-flex justify-content-center m-3">
+      <div class="row d-flex justify-content-center m-3 p-2 white">
         <div class="col-md-8 text-left">
           <div class="row">
             <div class="col-md-6">
               <%= image_tag @bento.bento_image,class:"img-fluid" ,style: "width:50%;" %>
             </div>
             <div class="col-md-6">
-              <h6 class="p-2" style="background-color: #e6f5ff;">紹介文</h6>
+              <h6 class="p-2 gray">紹介文</h6>
               　<%= @bento.introduction %>
-              <h6 class="p-2" style="background-color: #e6f5ff;">値段</h6>
+              <h6 class="p-2 gray">値段</h6>
               　<%= @bento.price %>円
-              <h6 class="p-2" style="background-color: #e6f5ff;">カテゴリー</h6>
+              <h6 class="p-2 gray">カテゴリー</h6>
               　<%= @bento.genre.name %>
             </div>
           </div>
-          <h4 class="p-2 row" style="background-color: #e6f5ff;">おかず</h4>
+          <h4 class="p-2 gray row">おかず</h4>
           <div class = "row">
             <% @bento.dishes.each do |dish| %>
-              <%= link_to dish_path(dish) , class: "col-md3" do %>
+              <%= link_to dish_path(dish) , class: "col-md-3 link-color" do %>
                 <div>
                   <%= image_tag dish.dish_image,size: "100x60" %>
                   <%= dish.name %>
@@ -30,7 +30,7 @@
               <% end %>
             <% end %>
           </div>
-          
+
         </div>
         <%= form_with model: @carts, url: carts_path, method: :post do |f| %>
         <%= f.hidden_field :bento_box_id, :value => @bento.id %>
@@ -48,7 +48,7 @@
   </div>
   <div class="row float-right">
     <div>
-      <%= link_to "弁当一覧に戻る",bento_index_path ,class: "mr-5"%>
+      <%= link_to "弁当一覧に戻る",bento_index_path ,class: "mr-5 link-color"%>
     </div>
   </div>
 </div>
