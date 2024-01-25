@@ -14,8 +14,8 @@
             <% end %>
           </ul>
         <% end %>
-          <div class="row m-3" style="background-color: #e6f5ff;">
-            <div class="col-md-6 m-auto p-3 max-width" style="background-color: #e6f5ff; width: 430px;">
+          <div class="row m-3 gray">
+            <div class="col-md-6 m-auto p-3 max-width">
               <div class="field text-left">
                 <%= f.label :name,"名前" %><br />
                 <%= f.text_field :name , autofocus: true, :placeholder => "名前" ,size: 30 , class: "max-width" %>
@@ -37,7 +37,7 @@
                 <%= f.file_field :bento_image, accept: "image/*" , class: "max-width" %>
               </div>
             </div>
-            <div class="col-md-6 m-auto p-3 field text-left" style="background-color: #e6f5ff; width: 430px;">
+            <div class="col-md-6 m-auto p-3 field text-left">
               <%= f.label :dish_id,"おかず" %><br />
               <%= f.collection_check_boxes(:dish_ids, @dishes, :id, :name) do |b| %>
                 <label class="checkbox-inline">
@@ -63,8 +63,8 @@
     </div>
   <div class="row float-right">
     <div>
-      <%= link_to "おかずを作成する",new_admin_dish_path %>
-      <%= link_to "弁当一覧に戻る",admin_bento_index_path %>
+      <%= link_to "おかずを作成する",new_admin_dish_path , class: "link-color" %>
+      <%= link_to "弁当一覧に戻る",admin_bento_index_path , class: "link-color" %>
     </div>
   </div>
 </div>

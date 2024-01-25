@@ -6,7 +6,7 @@
       </div>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="m-3 max-width">
-          <div class="m-auto p-3 max-width" style="background-color: #e6f5ff; width: 430px;">
+          <div class="m-auto p-3 max-width gray" style="width: 430px;">
             <div class="field text-left">
               <%= f.label :email,"メールアドレス" %><br />
               <%= f.email_field :email, autofocus: true, autocomplete: "email",:placeholder => "email",size: 46 , class: "max-width" %>

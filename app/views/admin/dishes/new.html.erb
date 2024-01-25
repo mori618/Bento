@@ -15,7 +15,7 @@
           </ul>
         <% end %>
           <div class="m-3">
-            <div class="m-auto p-3 max-width" style="background-color: #e6f5ff; width: 430px;">
+            <div class="m-auto p-3 max-width gray" style="width: 430px;">
               <div class="field text-left">
                 <%= f.label :name,"名前" %><br />
                 <%= f.text_field :name , autofocus: true, :placeholder => "名前" ,size: 30 , class: "max-width" %>
@@ -49,7 +49,7 @@
     </div>
   <div class="row float-right">
     <div>
-      <%= link_to "おかず一覧に戻る",admin_dishes_path %>
+      <%= link_to "おかず一覧に戻る",admin_dishes_path ,class: "link-color" %>
     </div>
   </div>
 </div>

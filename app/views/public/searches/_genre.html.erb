@@ -2,24 +2,24 @@
 <div class="genre_search">
   <table class="table table-hover ">
     <tr>
-      <th>カテゴリー検索</th>
+      <th style="border-bottom: 6px solid #e63d00;">カテゴリー検索</th>
     </tr>
 
     <% @genres.each do |genre| %>
       <tr class="institution_index_tbody_tr" data-href="/genre/search/<%= genre.id %>">
-        <td><%= link_to genre.name, genre_search_path(genre.id), method: :get %></td>
+        <td><%= link_to genre.name, genre_search_path(genre.id), method: :get , class: "link-color" %></td>
       </tr>
     <% end %>
 
     <% @recommended_bento = BentoBox.find_by(recommended: true) %>
     <% if @recommended_bento %>
       <tr class="institution_index_tbody_tr" data-href="/genre/recommend">
-        <td><%= link_to "おすすめ",recommend_search_path %></td>
+        <td><%= link_to "おすすめ",recommend_search_path , class: "link-color" %></td>
       </tr>
     <% end %>
 
     <tr class="institution_index_tbody_tr" data-href="/bento/index">
-      <td><%= link_to "一覧",bento_index_path %></td>
+      <td><%= link_to "一覧",bento_index_path, class: "link-color" %></td>
     </tr>
 
 

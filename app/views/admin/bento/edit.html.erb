@@ -14,8 +14,8 @@
             <% end %>
           </ul>
         <% end %>
-          <div class="row m-3" style="background-color: #e6f5ff;">
-            <div class="col-md-6 m-auto p-3 max-width" style="background-color: #e6f5ff;">
+          <div class="row m-3 gray" >
+            <div class="col-md-6 m-auto p-3 max-width " >
               <div class="field text-left">
                 <%= f.label :name,"名前" %><br />
                 <%= f.text_field :name , autofocus: true, :placeholder => "名前" ,size: 30 , class: "max-width" %>
@@ -44,7 +44,7 @@
                   販売停止中
               </div>
             </div>
-            <div class="col-md-6 m-auto p-3 field text-left max-width" style="background-color: #e6f5ff;">
+            <div class="col-md-6 m-auto p-3 field text-left max-width">
               <%= f.label :genre_id,"おかず" %><br />
               <%= f.collection_check_boxes(:dish_ids, @dishes, :id, :name) do |b| %>
                 <label class="checkbox-inline">
@@ -70,7 +70,7 @@
     </div>
   <div class="row float-right">
     <div>
-      <%= link_to "詳細に戻る",admin_bento_path(@bento) %>
+      <%= link_to "詳細に戻る",admin_bento_path(@bento), class: "link-color" %>
     </div>
   </div>
 </div>

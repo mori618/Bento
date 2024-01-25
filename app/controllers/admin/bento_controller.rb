@@ -2,21 +2,25 @@ class Admin::BentoController < ApplicationController
   before_action :authenticate_admin!
 
   def index
+    # お弁当の一覧
     @bentoes = BentoBox.page(params[:page]).per(6)
     @genres = Genre.all
   end
 
   def show
+    # お弁当詳細
     @bento = BentoBox.find(params[:id])
   end
 
   def edit
+    # お弁当編集
     @bento = BentoBox.find(params[:id])
     @dishes = Dish.all
     @genres = Genre.all
   end
 
   def update
+    # 編集したお弁当更新
     @bento = BentoBox.find(params[:id])
     @dishes = Dish.all
     @genres = Genre.all
@@ -28,6 +32,7 @@ class Admin::BentoController < ApplicationController
   end
 
   def new
+    # 新しく作る
     @bento = BentoBox.new
     @dishes = Dish.all
     @genres = Genre.all

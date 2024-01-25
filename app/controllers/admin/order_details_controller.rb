@@ -4,15 +4,20 @@ class Admin::OrderDetailsController < ApplicationController
   def update
     @order = Order.find(params[:id])
     @order_detail = @order.order_details.find(params[:detail_id])
+
+    # 注文が製造待ちで、注文商品ボタンが押された時の処理
+    # 製造待ちのステータスが製造中になる
     if @order.status == "waiting_production"
       @order.status = "in_production"
       order_making_time = OrderMakingTime.new
       order_making_time.order_id = @order.id
+      # 注文の製造開始時間を記録する
       order_making_time.start_at = Time.zone.now
       @order.order_making_time = order_making_time
       order_making_time.save
       @order.save
     end
+
 
     if @order_detail.making_status == "waiting"
       @order_detail.making_status = "in_progress"
