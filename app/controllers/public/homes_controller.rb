@@ -9,4 +9,5 @@ class Public::HomesController < ApplicationController
 
   def confirm
   end
+
 end
