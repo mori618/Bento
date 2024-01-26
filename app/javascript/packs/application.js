@@ -16,6 +16,8 @@ import "popper.js";
 import "bootstrap";
 import "../stylesheets/application";
 import "packs/institution.js"
+window.$ = window.jQuery = require('jquery');
+require('packs/raty')
 
 
 Rails.start()

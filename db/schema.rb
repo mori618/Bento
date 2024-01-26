@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_01_18_020629) do
+ActiveRecord::Schema.define(version: 2024_01_26_074629) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -177,8 +177,20 @@ ActiveRecord::Schema.define(version: 2024_01_18_020629) do
     t.datetime "delivery_time"
   end
 
+  create_table "stars", force: :cascade do |t|
+    t.float "star", default: 0.0, null: false
+    t.integer "customer_id", null: false
+    t.integer "bento_box_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bento_box_id"], name: "index_stars_on_bento_box_id"
+    t.index ["customer_id"], name: "index_stars_on_customer_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bento_box_dishes", "bento_boxes"
   add_foreign_key "bento_box_dishes", "dishes"
+  add_foreign_key "stars", "bento_boxes"
+  add_foreign_key "stars", "customers"
 end

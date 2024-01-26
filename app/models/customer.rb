@@ -4,6 +4,7 @@ class Customer < ApplicationRecord
   has_many :carts
   has_many :addresses
   has_many :orders
+  has_many :stars, foreign_key: 'star_id'
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
