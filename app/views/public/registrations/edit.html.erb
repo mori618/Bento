@@ -8,22 +8,22 @@
       </div>
       <%= render "public/shared/error_messages", resource: resource %>
         <div class="m-3">
-          <div class="m-auto p-3 gray" style="width: 430px;">
+          <div class="m-auto p-3 gray max-width" style="width: 430px;">
             <div class="field text-left">
               <%= f.label :last_name,"名前" %><br />
-              <%= f.text_field :last_name , autofocus: true, :placeholder => "姓" %> <%= f.text_field :first_name ,:placeholder => "名"%>
+              <%= f.text_field :last_name , autofocus: true, :placeholder => "姓" , class: "max-width"%> <%= f.text_field :first_name ,:placeholder => "名", class: "max-width"%>
             </div>
             <div class="field text-left">
               <%= f.label :last_name_kana,"フリガナ" %><br />
-              <%= f.text_field :last_name_kana ,:placeholder => "セイ" %> <%= f.text_field :first_name_kana ,:placeholder => "セイ"%>
+              <%= f.text_field :last_name_kana ,:placeholder => "セイ" , class: "max-width"%> <%= f.text_field :first_name_kana ,:placeholder => "セイ", class: "max-width"%>
             </div>
             <div class="field text-left">
               <%= f.label :telephone_number,"電話番号" %><br />
-              <%= f.text_field :telephone_number,:placeholder => "00000000000   ハイフンなし" ,size: 46 %>
+              <%= f.text_field :telephone_number,:placeholder => "00000000000   ハイフンなし" ,size: 46 , class: "max-width"%>
             </div>
             <div class="field text-left">
               <%= f.label :email,"メールアドレス" %><br />
-              <%= f.email_field :email, autocomplete: "email",:placeholder => "email",size: 46 %>
+              <%= f.email_field :email, autocomplete: "email",:placeholder => "email",size: 46 , class: "max-width"%>
                 <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                   <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
                 <% end %>
@@ -31,15 +31,15 @@
 
             <div class="field text-left">
               <%= f.label :post_code ,"郵便番号" %><br />
-              <%= f.text_field :post_code ,:placeholder => "0000000   ハイフンなし" %>
+              <%= f.text_field :post_code ,:placeholder => "0000000   ハイフンなし" , class: "max-width"%>
             </div>
             <div class="field text-left">
               <%= f.label :address ,"住所" %><br />
-              <%= f.text_field :address ,:placeholder => "京都府京都市",size: 46%>
+              <%= f.text_field :address ,:placeholder => "京都府京都市",size: 46, class: "max-width"%>
             </div>
             <div class="field text-left">
               <%= f.label :password %> <i>(変更無しなら空欄)</i><br />
-              <%= f.password_field :password, autocomplete: "new-password" %>
+              <%= f.password_field :password, autocomplete: "new-password" , class: "max-width"%>
               <% if @minimum_password_length %>
                 <br />
                 <em><%= @minimum_password_length %> 文字以上</em>
@@ -47,11 +47,11 @@
             </div>
             <div class="field text-left">
               <%= f.label :password_confirmation %><br />
-              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password" , class: "max-width"%>
             </div>
             <div class="field text-left">
               <%= f.label :current_password %> <i>(変更前のパスワード)</i><br />
-              <%= f.password_field :current_password, autocomplete: "current-password" %>
+              <%= f.password_field :current_password, autocomplete: "current-password" , class: "max-width"%>
             </div>
 
           </div>

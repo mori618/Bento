@@ -37,6 +37,9 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # def cancel
   #   super
   # end
+  def after_update_path_for(resource)
+   customer_path
+  end
 
   protected
 

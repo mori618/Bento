@@ -8,13 +8,13 @@
         <%= notice %>
       <% end %>
       <div class="row d-flex justify-content-center m-3">
-        <div class="col-md-8 max-box d-flex flex-wrap">
+        <div class="col-md-8 max-box d-flex flex-wrap justify-content-center">
           <% @nedan = 0 %>
           <% @order.order_details.each do |f| %>
             <% @nedan = @nedan + f.subtotal %>
             <div class="card m-3" style="width: 13rem;">
                 <%= image_tag f.bento_box.bento_image, size:'100x100',class: "m-auto"%>
-              <div class="card-body d-flex flex-column">
+              <div class="card-body d-flex flex-column justify-content-center">
                 <h6 class="p-2 gray"><%= f.bento_box.name %></h6>
                 <p class="card-text m-1"><%= f.bento_box.price%>円</p>
                 <p class="card-text m-1"><%= f.amount %>個</p>
