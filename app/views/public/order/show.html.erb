@@ -18,7 +18,6 @@
                 <p class="card-text m-1 gray">小計：　<%= f.subtotal%>円</p>
                 <% if f.bento_box.is_active %>
                   <%= link_to "商品ページへ",bento_path(f.bento_box), class: "btn btn-outline-primary btn-sm stretched-link" %>
-
                 <% else %>
                   <h6>現在取り扱っておりません</h6>
                 <% end %>
