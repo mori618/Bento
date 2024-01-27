@@ -3,6 +3,12 @@
     <tr>
       <th style="border-bottom: 6px solid #e63d00;">カテゴリー検索</th>
     </tr>
+    <tr class="institution_index_tbody_tr" data-href="/admin/dishes">
+      <td><%= link_to "一覧",admin_dishes_path , class: "link-color" %></td>
+    </tr>
+    <tr class="institution_index_tbody_tr" data-href="/admin/genre/dish/new">
+      <td><%= link_to "一覧(新しい順)",admin_new_dish_search_path , class: "link-color" %></td>
+    </tr>
 
     <% @genres.each do |genre| %>
       <tr class="institution_index_tbody_tr" data-href="/admin/genre/dish/search/<%= genre.id %>">
@@ -10,9 +16,7 @@
       </tr>
     <% end %>
 
-    <tr class="institution_index_tbody_tr" data-href="/admin/dishes">
-      <td><%= link_to "一覧",admin_dishes_path , class: "link-color" %></td>
-    </tr>
+
 
   </table>
 </div>

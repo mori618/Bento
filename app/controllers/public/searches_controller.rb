@@ -19,4 +19,14 @@ class Public::SearchesController < ApplicationController
     @genres = Genre.all
   end
 
+  def new_search
+    @bentoes = BentoBox.where(is_active: true).order(id: :DESC).page(params[:page]).per(6)
+    @genres = Genre.all
+  end
+
+  def new_dish_search
+    @dishes = Dish.order(id: :DESC).page(params[:page]).per(6)
+    @genres = GenreDish.all
+  end
+
 end
