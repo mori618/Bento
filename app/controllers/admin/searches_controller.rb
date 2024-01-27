@@ -19,4 +19,16 @@ class Admin::SearchesController < ApplicationController
     @bento = BentoBox.find_by(recommended: true)
     @genres = Genre.all
   end
+
+  def new_search
+    @bentoes = BentoBox.order(id: :DESC).page(params[:page]).per(6)
+    @genres = Genre.all
+  end
+  
+  def new_dish_search
+    @dishes = Dish.order(id: :DESC).page(params[:page]).per(6)
+    @genres = GenreDish.all
+  end
+
+
 end

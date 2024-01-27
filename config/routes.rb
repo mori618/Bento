@@ -33,15 +33,16 @@ Rails.application.routes.draw do
   get '/bento/index', to: 'public/bento_box#index', as: 'bento_index'
   get '/bento/:id', to: 'public/bento_box#show', as: 'bento'
 
-  get '/dishes', to: 'public/dushes#index', as: 'dishes'
+  get '/dishes', to: 'public/dishes#index', as: 'dishes'
   get '/dish/:id', to: 'public/dishes#show', as: 'dish'
   get '/genre/search/:id' => 'public/searches#genre_search', as: 'genre_search'
   get '/genre/dish/search/:id' => 'public/searches#genre_dish_search', as: 'genre_dish_search'
   get '/genre/recommend' => 'public/searches#recommend_search', as: 'recommend_search'
-
+  get '/genre/new' => 'public/searches#new_search', as: 'new_search'
+  get '/genre/dish/new' => 'public/searches#new_dish_search', as: 'new_dish_search'
   post '/address' => 'public/address#create', as: 'address'
 
-  post '/star' => 'public/stars#create', as: 'star'
+
 
   namespace :admin do
     root to: "homes#top"
@@ -53,7 +54,9 @@ Rails.application.routes.draw do
     put '/order/:id/orderdetail/:detail_id', to: 'order_details#update', as: 'order_detail_update'
     get '/genre/search/:id' => 'searches#genre_search', as: 'genre_search'
     get '/genre/dish/search/:id' => 'searches#genre_dish_search', as: 'genre_dish_search'
+    get '/genre/dish/new' => 'searches#new_dish_search', as: 'new_dish_search'
     get '/genre/recommend' => 'searches#recommend_search', as: 'recommend_search'
+    get '/genre/new' => 'searches#new_search', as: 'new_search'
     get '/customer/:id/orders' => 'customer#orders', as: 'customer_orders'
 
   end

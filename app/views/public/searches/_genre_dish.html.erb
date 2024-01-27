@@ -3,16 +3,17 @@
     <tr>
       <th style="border-bottom: 6px solid #e63d00;">カテゴリー検索</th>
     </tr>
+    <tr class="institution_index_tbody_tr" data-href="/dishes">
+      <td><%= link_to "一覧",dishes_path , class: "link-color"%></td>
+    </tr>
 
     <% @genres.each do |genre| %>
       <tr class="institution_index_tbody_tr" data-href="/genre/dish/search/<%= genre.id %>">
-        <td><%= link_to genre.name, genre_dish_search_path(genre.id) %></td>
+        <td><%= link_to genre.name, genre_dish_search_path(genre.id) , class: "link-color"%></td>
       </tr>
     <% end %>
 
-    <tr class="institution_index_tbody_tr" data-href="/dishes">
-      <td><%= link_to "一覧",dishes_path %></td>
-    </tr>
+    
 
   </table>
 </div>
