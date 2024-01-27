@@ -41,6 +41,8 @@ Rails.application.routes.draw do
 
   post '/address' => 'public/address#create', as: 'address'
 
+  post '/star' => 'public/stars#create', as: 'star'
+
   namespace :admin do
     root to: "homes#top"
     resources :bento, :customer ,:dishes ,:genres ,:genre_dishes
