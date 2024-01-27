@@ -5,6 +5,7 @@ class Public::OrderController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @star = Star.new
   end
 
   def new

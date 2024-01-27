@@ -3,6 +3,7 @@ class BentoBox < ApplicationRecord
   has_many :dishes ,through: :bento_box_dishes
   has_many :carts
   has_many :order_details
+  has_many :stars, foreign_key: 'star_id'
   belongs_to :genre, foreign_key: 'genre_id'
   has_one_attached :bento_image
 
