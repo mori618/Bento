@@ -10,14 +10,14 @@
           <% @order.order_details.each do |f| %>
             <% @nedan = @nedan + f.subtotal %>
             <div class="card m-3" style="width: 13rem;">
-                <%= image_tag f.bento_box.bento_image,class: "m-auto card-img-top",%>
+                <%= image_tag f.bento_box.bento_image,class: "m-auto card-img-top" %>
               <div class="card-body d-flex flex-column">
-                <h6 class="p-2 gray"><%= f.bento_box.name %></h6>
+                <h6 class="p-2 gray mt-auto"><%= f.bento_box.name %></h6>
                 <p class="card-text m-1"><%= f.bento_box.price%>円</p>
                 <p class="card-text m-1"><%= f.amount %>個</p>
                 <p class="card-text m-1 gray">小計：　<%= f.subtotal%>円</p>
                 <% if f.bento_box.is_active %>
-                  <%= link_to "商品ページへ",bento_path(f.bento_box), class: "btn btn-outline-primary btn-sm stretched-link" %>
+                  <%= link_to "商品ページへ",bento_path(f.bento_box), class: "mt-auto btn btn-outline-primary btn-sm stretched-link" %>
                 <% else %>
                   <h6>現在取り扱っておりません</h6>
                 <% end %>
