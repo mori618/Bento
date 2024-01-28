@@ -24,7 +24,7 @@ class Admin::SearchesController < ApplicationController
     @bentoes = BentoBox.order(id: :DESC).page(params[:page]).per(6)
     @genres = Genre.all
   end
-  
+
   def new_dish_search
     @dishes = Dish.order(id: :DESC).page(params[:page]).per(6)
     @genres = GenreDish.all
