@@ -5,6 +5,7 @@
         <h2>ご注文履歴詳細</h2>
       </div>
       <div class="row d-flex justify-content-center m-3">
+        <% if @order.customer == current_customer %>
         <div class="col-md-8 max-box d-flex flex-wrap justify-content-center">
           <% @nedan = 0 %>
           <% @order.order_details.each do |f| %>
@@ -38,6 +39,9 @@
           </div>
 
         </div>
+        <% else %>
+        他のお客様のご注文です。
+        <% end %>
       </div>
     </div>
   </div>
