@@ -24,11 +24,13 @@
                 <% else %>
                   　販売停止中
                 <% end %>
-                <h6 class="gray p-2">ステータス</h6>
-                <% if @bento.recommended %>
-                  <h6 class="text-success">　おすすめ商品</h6>
-                <% else %>
-                  <%= link_to "おすすめ商品にする",admin_recommend_path(@bento), method: :put , class: " m-2 btn btn-outline-dark btn-sm" %>
+                <% if @bento.is_active %>
+                  <h6 class="gray p-2">ステータス</h6>
+                  <% if @bento.recommended %>
+                    <h6 class="text-success">　おすすめ商品</h6>
+                  <% else %>
+                    <%= link_to "おすすめ商品にする",admin_recommend_path(@bento), method: :put , class: " m-2 btn btn-outline-dark btn-sm" %>
+                  <% end %>
                 <% end %>
               </div>
             </div>
