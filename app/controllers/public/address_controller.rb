@@ -9,6 +9,7 @@ class Public::AddressController < ApplicationController
       redirect_to customer_path
     end
   end
+  
 
   private
 
