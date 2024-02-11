@@ -1,6 +1,6 @@
 class Admin::GenresController < ApplicationController
   before_action :authenticate_admin!
-
+#弁当カテゴリー管理
   def index
     @genres = Genre.page(params[:page])
     @genre = Genre.new
