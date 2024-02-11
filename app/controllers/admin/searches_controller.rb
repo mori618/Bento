@@ -1,6 +1,6 @@
 class Admin::SearchesController < ApplicationController
   before_action :authenticate_admin!
-
+#カテゴリー検索機能
   def genre_search
     @genre_id = params[:id]
     @bentoes = BentoBox.where(genre_id: @genre_id).page(params[:page]).per(6)
