@@ -41,6 +41,9 @@ Rails.application.routes.draw do
   get '/genre/new' => 'public/searches#new_search', as: 'new_search'
   get '/genre/dish/new' => 'public/searches#new_dish_search', as: 'new_dish_search'
   post '/address' => 'public/address#create', as: 'address'
+  get '/address/:id' => 'public/address#edit', as: 'edit_address'
+  patch '/address/update/:id' => 'public/address#update', as: 'update_address'
+  delete '/address/:id' => 'public/address#destroy', as: 'destroy_address'
 
 
 

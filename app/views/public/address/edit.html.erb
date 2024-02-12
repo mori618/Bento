@@ -1,0 +1,38 @@
+<div class="container-xxl p-5">
+  <div class="row text-center">
+    <div class="col-12">
+      <div class="title-body">
+        <h2>配送先編集</h2>
+      </div>
+      <div class="text-center m-5 p-2" style="background-color: #fff;">
+        <% if @address.customer_id == current_customer.id %>
+          <div>
+            <%= form_with model:@address , url: update_address_path, local:true do |f| %>
+              <div class="m-auto p-3 gray max-width" style="width: 430px;">
+                <div class="field text-left">
+                  <%= f.label :address_type, "配送先を編集する" %><br />
+                  <%= flash[:notice] %>
+                  <%= f.label :name,"お名前" %><br />
+                  <%= f.text_field :name , :placeholder => "お名前" ,size: 30 , class: "max-width"%>
+                </div>
+                <div class="field text-left">
+                  <%= f.label :post_code ,"郵便番号" %><br />
+                  <%= f.text_field :post_code ,:placeholder => "0000000 ハイフンなし" , class: "max-width"%>
+                </div>
+                <div class="field text-left">
+                  <%= f.label :address ,"住所" %><br />
+                  <%= f.text_field :address ,:placeholder => "京都府京都市",size: 46, class: "max-width"%>
+                </div>
+                <div class="field">
+                  <%= f.submit "保存する" ,class: "m-2 btn btn-success" %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% else %>
+        他のお客様の配送先です
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
