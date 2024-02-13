@@ -9,7 +9,9 @@
       <div class="title-body">
         <h2>弁当一覧</h2>
       </div>
-
+      <div>
+        <%= flash[:notice] %>
+      </div>
       <div class="max-box d-flex flex-wrap justify-content-center">
         <% if @bentoes.present? %>
           <% @bentoes.each do |bento| %>

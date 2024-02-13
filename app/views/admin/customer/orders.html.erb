@@ -4,6 +4,9 @@
       <div class="title-body">
         <h2><%= @customer.last_name %>様注文履歴一覧</h2>
       </div>
+      <div>
+        <%= flash[:notice] %>
+      </div>
 
       <table class="table table-striped table-hover mt-3 mobile-blocky" style="background-color: #fff;">
         <thead>
