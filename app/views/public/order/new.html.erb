@@ -15,8 +15,8 @@
           <div class="field text-left">
             <% if current_customer.addresses.present? %>
               <%= f.radio_button :address_type, [:registered_address] %>
-              <%= f.label :address_type, "登録済住所から選択" %><br>
-              <%= f.select :address_id, options_from_collection_for_select(current_customer.addresses.all, :id, :address_display) , class: "max-width"%>
+              <%= f.label :address_type, "登録済住所から選択" , class: "max-width"%><br>
+              <%= f.select :address_id, options_from_collection_for_select(current_customer.addresses.all, :id, :address_display) ,{}, {class: 'max-width'}%>
             <% end %>
           </div>
           <div class="field text-left">

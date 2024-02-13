@@ -10,7 +10,7 @@
           <% @carts.each do |f| %>
             <% @nedan = @nedan + f.subtotal %>
             <div class="card m-3" style="width: 18rem;">
-                <%= image_tag f.bento_box.bento_image, size:'100x100',class: "m-auto"%>
+                <%= image_tag f.bento_box.bento_image, class: "card-img-top"%>
                 <h6 class="p-2 gray"><%= f.bento_box.name %></h6>
                 <h6><%= f.bento_box.price%>円</h6>
               <div class="card-body d-flex flex-column">
