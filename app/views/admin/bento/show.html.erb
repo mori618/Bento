@@ -4,6 +4,9 @@
       <div class="title-body">
         <h2><%= @bento.name %></h2>
       </div>
+      <div>
+        <%= flash[:notice] %>
+      </div>
       <div class="row d-flex justify-content-center m-3 white p-2">
         <% if @bento.present? %>
           <div class="col-md-8 text-left ">

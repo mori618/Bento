@@ -5,7 +5,7 @@
         <h2>マイページ</h2>
       </div>
       <div class="row">
-        
+
         <div class="col-md-6">
           <%= flash[:notice] %>
           <table class="table table-striped table-hover mt-3 mobile-blocky" style="background-color: #fff;">
@@ -62,7 +62,7 @@
             <div class="m-auto p-3 gray max-width" style="width: 430px;">
               <div class="field text-left">
                 <%= f.label :address_type, "新しい配送先を登録する" %><br />
-                
+
                 <%= f.label :name,"お名前" %><br />
                 <%= f.text_field :name , :placeholder => "お名前" ,size: 30 , class: "max-width"%>
               </div>
