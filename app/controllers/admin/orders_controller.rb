@@ -13,12 +13,14 @@ class Admin::OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     if @order.status == "waiting_delivery"
+      #ステータスを配送中に変える
       @order.status = "delivering"
       @order.order_making_time.shipping_start_at = Time.zone.now
       @order.order_making_time.save
       @order.save
       redirect_to admin_order_path(@order), notice: "変更を完了しました"
     elsif @order.status == "delivering"
+      #ステータスを配送済みに変更する
       @order.status = "delivered"
       @order.order_making_time.shipping_end_at = Time.zone.now
       @order.order_making_time.save

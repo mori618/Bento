@@ -17,9 +17,9 @@ class Admin::OrderDetailsController < ApplicationController
       order_making_time.save
       @order.save
     end
-
-
+    #注文詳細ごとにステータスを変える
     if @order_detail.making_status == "waiting"
+      #製造中に変える
       @order_detail.making_status = "in_progress"
       order_detail_making_time = OrderDetailMakingTime.new
       order_detail_making_time.order_detail_id = @order_detail.id
@@ -29,6 +29,7 @@ class Admin::OrderDetailsController < ApplicationController
       @order_detail.save
       redirect_to admin_order_path(@order), notice: "変更を完了しました"
     elsif @order_detail.making_status == "in_progress"
+      #製造完了に変える
       @order_detail.making_status = "completed"
       @order_detail.order_detail_making_time.end_at = Time.zone.now
       @order_detail.save
