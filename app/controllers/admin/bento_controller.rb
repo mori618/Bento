@@ -1,4 +1,5 @@
 class Admin::BentoController < ApplicationController
+  #追加したい機能　弁当ごとの注文されてきた数の記録　売れ筋商品の見極め
   before_action :authenticate_admin!
 
   def index
