@@ -1,7 +1,7 @@
 class Admin::OrdersController < ApplicationController
   before_action :authenticate_admin!
 #注文履歴管理
-#追加したい機能　配送先の地図の表示
+
   def index
     @orders = Order.all.page(params[:page]).order(id: "DESC")
 
